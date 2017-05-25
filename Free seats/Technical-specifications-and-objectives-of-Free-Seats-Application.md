@@ -3,8 +3,8 @@
 The exercise consists to develop a sample VCL application, using Delphi language, to solve the "free seats" problem that is described in the technical specifications section. The VCL sample application must be done using Model-View-Presenter design pattern that allows you to separate different responsabilities, implementing the View, the Model and the Presenter.
 
 
-Technical specifications and objectives
-=======================================
+Technical specifications
+========================
 
 There is a group of people whose number is defined, the Free Seats sample application is able find in what line of a cinema or theater, there is enough space for these people to have all the nearby seats.
 
