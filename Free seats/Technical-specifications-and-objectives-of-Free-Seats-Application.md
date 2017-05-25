@@ -6,7 +6,7 @@ The exercise consists to develop a sample VCL application, using Delphi language
 Technical specifications
 ========================
 
-There is a group of people whose number is defined, the Free Seats sample application is able find in what row of a room in a cinema or theater there is enough space for these people to have all the nearby seats. Regarding the "free seats" algorithm, set-based solutions are preferred because today our cinema has one room with twelve rows with forty seats each, but tomorrow it will have ten rooms with twenty rows with fifty seats each.
+There is a group of people whose number is defined, the Free Seats sample application is able find in what row of a room in a cinema or theater there is enough space for these people to have all the nearby seats. Regarding the "free seats" algorithm, set-based solutions are preferred because today our cinema has one room with twelve rows with forty seats each, but tomorrow it will have ten rooms with twenty rows with fifty seats each :)
 
 ![](./img/Free-Seats.png)
 
