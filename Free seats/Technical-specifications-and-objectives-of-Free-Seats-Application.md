@@ -1,4 +1,4 @@
-# Free Seats Application
+# Free Seats sample application
 
 The exercise consists to develop a sample VCL application, using Delphi language, to solve the "free seats" problem that is described in the technical specifications section. The VCL sample application must be done using Model-View-Presenter design pattern that allows you to separate different responsabilities, implementing the View, the Model and the Presenter.
 
