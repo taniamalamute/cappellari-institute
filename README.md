@@ -1,3 +1,8 @@
-# Istituto Cappellari
+# Welcome to my Cappellari Institute repository
 
-Exercises on Delphi and SQL Server for courses at the Cappellari Institute (Ferrara, Italy)
+This repository contains exercises on Delphi and SQL Server for courses at the Cappellari Institute (Ferrara, Italy)
+
+Exercises
+=========
+
+- Free Seats
