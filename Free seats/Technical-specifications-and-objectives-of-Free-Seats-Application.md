@@ -1,14 +1,16 @@
 # Free Seats Application
 
+The exercise consists to develop a sample VCL application, using Delphi language, to solve the "free seats" problem that is described in the technical specifications section. The VCL sample application must be done using Model-View-Presenter design pattern that allows you to separate different responsabilities, implementing the View, the Model and the Presenter.
+
+
 Technical specifications and objectives
 =======================================
 
 There is a group of people whose number is defined, the Free Seats sample application is able find in what line of a cinema or theater, there is enough space for these people to have all the nearby seats.
 
-The exercise consists to develop a sample VCL application, using Delphi language, to solve the "free seats" problem we have described before. The VCL sample application must be done using Model-View-Presenter design pattern that allows to separate different responsabilities implementing the View, the Model and the Presenter.
-
-
 ![](./img/Free-Seats.png)
+
+The *input* consists of the number of people who want to buy a carnet of tickets for a movie in our cinema or for a theater show. The *output* consists of the coordinates where the group of people can find the exact number of the nearby free seats.
 
 
 Free Seats database
