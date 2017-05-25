@@ -16,4 +16,6 @@ The *input* consists of the number of people who want to buy a carnet of tickets
 Free Seats database
 ===================
 
-The Free Seats sample application works with FreeSeatsDB that is hosted on a SQL Server instance running on SQL Azure. You should have already received the credentials for connecting to SQL Azure.
+The Free Seats sample application works with *FreeSeatsDB* that is hosted on a SQL Server instance running on SQL Azure. You should have already received the credentials for connecting to SQL Azure. The main table in the *FreeSeatsDB* is *dbo.RoomsAndSeats*. The following picture shows the schema of the table *dbo.RoomsAndSeats*.
+
+![](./img/Free-Seats-DB.png)
