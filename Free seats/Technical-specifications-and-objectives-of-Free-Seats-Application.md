@@ -8,6 +8,8 @@ Technical specifications
 
 There is a group of people whose number is defined, the Free Seats sample application is able find in what row of a room in a cinema or theater there is enough space for these people to have all the nearby seats. Regarding the "free seats" algorithm, set-based solutions are preferred because today our cinema has one room with twelve rows with forty seats each, but tomorrow it will have ten rooms with twenty rows with fifty seats each :)
 
+The following picture shows a sample scenario for a room in our cinema.
+
 ![](./img/Free-Seats.png)
 
 The *input* consists of the number of people who want to buy a carnet of tickets for a particular movie in our cinema or for a theater show. The *output* consists of the coordinates where the group of people can find the exact number of the nearby free seats in the room where the show will be done.
