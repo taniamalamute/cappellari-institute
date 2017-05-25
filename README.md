@@ -5,4 +5,4 @@ This repository contains exercises on Delphi and SQL Server for courses at the C
 Exercises
 =========
 
-- Free Seats
+- [Free Seats](https://github.com/segovoni/cappellari-institute/tree/master/Free%20seats)
