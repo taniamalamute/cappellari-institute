@@ -6,11 +6,11 @@ The exercise consists to develop a sample VCL application, using Delphi language
 Technical specifications
 ========================
 
-There is a group of people whose number is defined, the Free Seats sample application is able find in what line of a cinema or theater, there is enough space for these people to have all the nearby seats.
+There is a group of people whose number is defined, the Free Seats sample application is able find in what row of a room in a cinema or theater there is enough space for these people to have all the nearby seats.
 
 ![](./img/Free-Seats.png)
 
-The *input* consists of the number of people who want to buy a carnet of tickets for a movie in our cinema or for a theater show. The *output* consists of the coordinates where the group of people can find the exact number of the nearby free seats.
+The *input* consists of the number of people who want to buy a carnet of tickets for a particular movie in our cinema or for a theater show. The *output* consists of the coordinates where the group of people can find the exact number of the nearby free seats in the room where the show will be done.
 
 
 Free Seats database
