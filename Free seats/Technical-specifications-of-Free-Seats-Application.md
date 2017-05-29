@@ -12,7 +12,7 @@ The following picture shows a sample scenario for a room in our cinema, some sea
 
 ![](./img/Free-Seats.png)
 
-The *input* consists of the number of people who want to buy a carnet of tickets for a particular movie in our cinema or for a theater show. The *output* consists of the coordinates where the group of people can find the exact number of the nearby free seats in the room where the show will be done.
+The *input* consists of the number of people who want to buy a carnet of tickets for a particular movie in our cinema or for a theater show. The *output* consists of the coordinates where the group of people can find the exact number of the nearby free seats in the room where the show they want to see will be done.
 
 
 Free Seats database
