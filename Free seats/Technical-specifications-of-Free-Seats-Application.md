@@ -23,4 +23,12 @@ The Free Seats sample application works with *FreeSeatsDB* that is hosted on a S
 ![](./img/Free-Seats-DB.png)
 
 
-Enjoy!
+Goals to achieve
+================
+
+- Connect to Azure SQL Database through Delphi data access components
+- Understand the Model View Presenter (M-V-P) design pattern
+- Set-based thinking (T-SQL)
+
+
+Enjoy the Free Seats application!
