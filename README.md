@@ -6,3 +6,4 @@ Exercises
 =========
 
 - [Free Seats](https://github.com/segovoni/cappellari-institute/tree/master/Free%20seats)
+- [Barcode check-digit calculator](https://github.com/segovoni/cappellari-institute/tree/master/Barcode%20check-digit%20calculator)
