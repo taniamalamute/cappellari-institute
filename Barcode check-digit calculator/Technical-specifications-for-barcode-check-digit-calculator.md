@@ -1,4 +1,4 @@
-# Barcode check-digit Calculator
+# Barcode check-digit calculator
 
 The exercise consists to develop a sample VCL application, using Delphi language, to calculate the check-digit for an UCC/EAN code as described in the technical specifications section. The VCL sample application must be developped using Model-View-Presenter design pattern that allows you to separate different responsabilities, implementing the View, the Model and the Presenter.
 
