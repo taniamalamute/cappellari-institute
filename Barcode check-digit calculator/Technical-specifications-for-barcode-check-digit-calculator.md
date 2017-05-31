@@ -30,6 +30,12 @@ Algorithm implementation
 The algorithm for calculate the check-digit must be implemented in T-SQL (using [T-SQL User-defined Functions](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/create-user-defined-functions-database-engine)) and in Delphi language as well. You can save the functions AdventureWorks database on SQL Azure instance you already known.
 
 
+How to verify the calculated check-digit
+========================================
+
+You can test your algorithm and the application comparing the result of your calculation with the result given by the [GS1 check digit calculator](http://www.gs1.org/check-digit-calculator). Example: if you try to calculate the check-digit for the sample code "801271210146", the application have to return five (5).
+
+
 Goals to achieve
 ================
 
