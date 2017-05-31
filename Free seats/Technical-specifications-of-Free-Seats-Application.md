@@ -1,6 +1,6 @@
 # Free Seats sample application
 
-The exercise consists to develop a sample VCL application, using Delphi language, to solve the "free seats" problem that is described in the technical specifications section. The VCL sample application must be done using Model-View-Presenter design pattern that allows you to separate different responsabilities, implementing the View, the Model and the Presenter.
+The exercise consists to develop a sample VCL application, using Delphi language, to solve the "free seats" problem that is described in the technical specifications section. The VCL sample application must be developped using Model-View-Presenter design pattern that allows you to separate different responsabilities, implementing the View, the Model and the Presenter.
 
 
 Technical specifications
@@ -34,7 +34,7 @@ Goals to achieve
 Folders organization
 ====================
 
-In the [cappellari-institute/Free seats/](https://github.com/segovoni/cappellari-institute/tree/master/Free%20seats) folder there is one sub-folder for each of you, the subfolder name is composed by the first character of your lastname plus the first character of your firstname. For example, my subfolder is GS. Put all your files in your subfolder (you can also create subfolders in your rfolder), try to do a well organization of your files.
+In the [cappellari-institute/Free seats/](https://github.com/segovoni/cappellari-institute/tree/master/Free%20seats) folder there is one sub-folder for each of you, the subfolder name is composed by the first character of your lastname plus the first character of your firstname. For example, my subfolder is GS. Put all your files in your subfolder (you can also create subfolders in your folder), try to do a well organization of your files.
 
 
 For any questions or doubts don't hesitate to contact me.
