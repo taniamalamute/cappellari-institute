@@ -21,7 +21,7 @@ After you have enumerated each digit of the given code, to determine the check-d
 
 If the result of the four step is a multiple of Ten (10), like Twenty, Thirty, Forty and so on, the check-digit will be equal to zero, otherwise the check-digit will be the result of the five step
 
-The *input* consists of an EAN13 barcode without the check-digit. The *output* consists of the check-digit for the given EAN13 barcode.
+The *input* consists of an **EAN13 barcode without the check-digit**. The *output* consists of the **check-digit** for the given EAN13 barcode.
 
 
 Algorithm
