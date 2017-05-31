@@ -24,8 +24,8 @@ If the result of the four step is a multiple of Ten (10), like Twenty, Thirty, F
 The *input* consists of an EAN13 barcode without the check-digit. The *output* consists of the check-digit for the given EAN13 barcode.
 
 
-Algorithm implementation
-========================
+Algorithm
+=========
 
 The algorithm for calculate the check-digit must be implemented in T-SQL (using [T-SQL User-defined Functions](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/create-user-defined-functions-database-engine)) and in Delphi language as well. You can save the functions AdventureWorks database on SQL Azure instance you already known.
 
@@ -52,4 +52,4 @@ In the [cappellari-institute/Barcode check-digit calculator/](https://github.com
 
 For any questions or doubts don't hesitate to contact me.
 
-Enjoy the barcode check-digit calculator!
+Enjoy!
