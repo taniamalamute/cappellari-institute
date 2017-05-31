@@ -1,4 +1,4 @@
-# Welcome to Cappellari Institute repository
+# Welcome to my Cappellari Institute exercises repository
 
 This repository contains exercises on Delphi and SQL Server that I have proposed during the courses at the Cappellari Institute (Ferrara, Italy)
 
