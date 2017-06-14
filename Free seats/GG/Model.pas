@@ -47,6 +47,8 @@ begin
   // ''' in attesa che il db cresca imposto la roomID a 1 '''
   DataModule5.SetQry(QueryFindSeats('1',ASeats));
   DataModule5.OpenQry;
+
+  FFindSeats.SendQueryToView(DataModule5.DataSource1);
 end;
 
 
@@ -60,19 +62,28 @@ begin
 
    + #13#10'  WITH     FreeSeatsNumered AS '
    + #13#10'  ('
-   + #13#10'  SELECT   SeatNumber, RowNumber, ROW_NUMBER() OVER (PARTITION BY SeatNumber ORDER BY RowNumber) AS ColNum '
+   + #13#10'  SELECT   SeatNumber, '
+   + #13#10'           RowNumber, '
+   + #13#10'           ROW_NUMBER() '
+   + #13#10'           OVER (PARTITION BY RowNumber ORDER BY SeatNumber) AS ColNum '
    + #13#10'  FROM     dbo.RoomsAndSeats '
    + #13#10'  WHERE    taken = 0 and '
    + #13#10'           RoomID = @Room '
    + #13#10'  ),'
    + #13#10'  NumeredContinuous AS '
    + #13#10'  ('
-   + #13#10'  SELECT  SeatNumber, RowNumber, COUNT(*) OVER (PARTITION BY SeatNumber, char(ascii(RowNumber) - ColNum)) AS SFree '
+   + #13#10'  SELECT  SeatNumber, '
+   + #13#10'          RowNumber, '
+   + #13#10'          COUNT(*) '
+   + #13#10'          OVER (PARTITION BY RowNumber, (SeatNumber - ColNum)) AS SFree '
    + #13#10'  FROM    FreeSeatsNumered '
    + #13#10'  )'
-   + #13#10'  Select   SeatNumber AS Fila, Min(RowNumber) AS Inizio, Max(RowNumber) AS Fine '
+   + #13#10'  Select	 RowNumber as [Row Number], '
+   + #13#10'           Min(SeatNumber) AS [From], '
+   + #13#10'           Max(SeatNumber) AS [To], '
+   + #13#10'           (Max(SeatNumber) - Min(SeatNumber) + 1) as [Total Free Near Seats] '
    + #13#10'  FROM     NumeredContinuous '
    + #13#10'  WHERE    SFree >= @SeatsRequest '
-   + #13#10'  Group BY SFree, SeatNumber; ' ;
+   + #13#10'  Group BY SFree, RowNumber; ' ;
 end;
 end.

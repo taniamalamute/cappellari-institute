@@ -15,13 +15,16 @@ unit PFindSeats;
 interface
 
 uses
-  IFindSeats, IFreeSeats, Model;
+  IFindSeats, IFreeSeats, Model, Data.DB;
 
 type
   TFindSeats = class (TInterfacedObject, IFindSeatsP)
+  private
+
   public
     constructor Create (AFreeSeatsView : IFreeSeatsView);
-    procedure SendSeatsNumber (ASeats : string);
+    procedure SendSeatsNumberToModel (ASeats : string);
+    procedure SendQueryToView (ADataSource : TDataSource);
 end;
 
 implementation
@@ -39,9 +42,16 @@ begin
   FModel:= TModel.Create(self);
 end;
 
+// passo alla view il datasource da collegare alla grid
+procedure TFindSeats.SendQueryToView(ADataSource: TDataSource);
+begin
+  FFreeSeatsView.ReciveDBGridDataModule(ADataSource);
+end;
 
-procedure TFindSeats.SendSeatsNumber(ASeats: string);
+// passo al model il numero di posti da cercare
+procedure TFindSeats.SendSeatsNumberToModel(ASeats: string);
 begin
      FModel.FindSeatsNumber(ASeats);
 end;
+
 end.

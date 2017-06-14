@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Ricerca Posti Adiacenti'
-  ClientHeight = 202
-  ClientWidth = 470
+  ClientHeight = 209
+  ClientWidth = 591
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object Form1: TForm1
   object DBGrid1: TDBGrid
     Left = 309
     Top = 35
-    Width = 129
+    Width = 252
     Height = 120
     DataSource = DataModule5.DataSource1
     TabOrder = 0
@@ -30,22 +30,29 @@ object Form1: TForm1
       item
         Alignment = taCenter
         Expanded = False
-        FieldName = 'Fila'
+        FieldName = 'Row Number'
+        Width = 70
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'From'
         Width = 30
         Visible = True
       end
       item
         Alignment = taCenter
         Expanded = False
-        FieldName = 'Inizio'
+        FieldName = 'To'
         Width = 30
         Visible = True
       end
       item
         Alignment = taCenter
         Expanded = False
-        FieldName = 'Fine'
-        Width = 30
+        FieldName = 'Total Free Near Seats'
+        Width = 80
         Visible = True
       end>
   end
@@ -72,7 +79,7 @@ object Form1: TForm1
       OnClick = BtnFindSeatsClick
     end
     object UpDown1: TUpDown
-      Left = 124
+      Left = 126
       Top = 44
       Width = 16
       Height = 21
