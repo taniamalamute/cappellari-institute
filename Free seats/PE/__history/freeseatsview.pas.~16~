@@ -1,0 +1,71 @@
+unit freeseatsview;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids,freeseatsinterface,freeseatspresenter,freeseatsmodel;
+
+type
+  TFcalculator = class(TForm,Iseatview)
+    RichiestaPosti: TEdit;
+    MemoDisplay: TMemo;
+    CheckDispButton: TButton;
+    GrigliaTeatro: TDBGrid;
+    Label1: TLabel;
+    Label2: TLabel;
+    procedure CheckDispButtonClick(Sender: TObject);
+  private
+    { Private declarations }
+    Fcalcpresenter:Tcalcpresenter;
+  public
+    { Public declarations }
+    function Getvalue:integer;
+  //  procedure popolagriglia;
+  //  procedure popolamemo;
+//    procedure eseguicontrollo;
+  //  procedure DisplayMessage(AValue: string);
+
+  end;
+
+
+var
+  Fcalculator: TFcalculator;
+
+  const APPTITLE = 'Titolo programma';
+implementation
+
+{$R *.dfm}
+
+{ TForm1 }
+
+procedure TFcalculator.CheckDispButtonClick(Sender: TObject);
+begin
+  DataModule1.DataSource1.DataSet.Open;
+   Fcalcpresenter.eseguicontrollo;
+//Ffreeseatspresenter.eseguicontrollo;
+end;
+
+//procedure TForm1.DisplayMessage(AValue: string);
+//begin
+//  Application.MessageBox(PChar(AValue), PChar(APPTITLE), MB_OK);
+//end;
+
+
+function TFcalculator.Getvalue: integer;
+begin
+  result:=strtoint(richiestaposti.Text);
+end;
+//
+//procedure TForm1.popolagriglia;
+//begin
+//
+//end;
+//
+//procedure TForm1.popolamemo;
+//begin
+//
+//end;
+
+end.

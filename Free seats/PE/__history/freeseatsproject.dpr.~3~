@@ -1,0 +1,18 @@
+program freeseatsproject;
+
+uses
+  Vcl.Forms,
+  freeseatsview in 'freeseatsview.pas' {Form1},
+  freeseatsinterface in 'freeseatsinterface.pas',
+  freeseatsmodel in 'freeseatsmodel.pas' {DataModule1: TDataModule},
+  freeseatspresenter in 'freeseatspresenter.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+ // Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.

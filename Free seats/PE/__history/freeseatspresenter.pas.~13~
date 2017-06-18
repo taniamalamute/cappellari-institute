@@ -1,0 +1,38 @@
+unit freeseatspresenter;
+
+interface
+
+uses freeseatsinterface;
+
+type
+tseatpresenter =class
+  protected
+  Fseatview:Iseatview;
+  public
+  Constructor create(Aseatview: Iseatview);
+  procedure eseguicontrollo;
+end;
+
+implementation
+
+uses system.sysutils;
+
+Constructor tseatpresenter.create(Aseatview: Iseatview);
+begin
+  Fseatview:=Aseatview;
+end;
+
+procedure tseatpresenter.eseguicontrollo;
+var Lgetval:integer;
+begin
+ try
+  lgetval:=Fseatview.Getvalue;
+ except
+  lgetval:=0;
+  Fseatview.DisplayMessage('Inserire Valore Numerico.');
+ end;
+  Fseatview.DisplayMessage('eseguo controllo');
+
+end;
+
+end.

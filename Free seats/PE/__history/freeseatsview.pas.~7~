@@ -1,0 +1,79 @@
+unit freeseatsview;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids,freeseatsinterface,freeseatspresenter,freeseatsmodel;
+
+type
+  TForm1 = class(TForm,Ifreeseats)
+    RichiestaPosti: TEdit;
+    MemoDisplay: TMemo;
+    CheckDispButton: TButton;
+    GrigliaTeatro: TDBGrid;
+    Label1: TLabel;
+    Label2: TLabel;
+    procedure CheckDispButtonClick(Sender: TObject);
+  private
+    { Private declarations }
+    Ffreeseatspresenter:Tfreeseats;
+  public
+    { Public declarations }
+    function Getvalue:integer;
+    procedure popolagriglia;
+    procedure popolamemo;
+    procedure eseguicontrollo;
+//    procedure Displaymessage(Atext:string);
+    function DysplayMessage(Atext:string):TModalResult;
+  end;
+
+  const APPTITLE = 'Titolo programma';
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TForm1 }
+
+procedure TForm1.CheckDispButtonClick(Sender: TObject);
+begin
+Ffreeseatspresenter.eseguicontrollo;
+end;
+
+//procedure TForm1.Displaymessage(Atext: string);
+//begin
+//  showmessage(Atext);
+//end;
+//procedure TForm1.DisplayMessage(const Atext: string);
+//begin
+//  Application.MessageBox(PChar(Atext), PChar(APPTITLE), MB_OK);
+//end;
+
+
+
+
+procedure TForm1.eseguicontrollo;
+begin
+
+end;
+
+function TForm1.Getvalue: integer;
+begin
+  result:=strtoint(richiestaposti.Text);
+end;
+
+procedure TForm1.popolagriglia;
+begin
+
+end;
+
+procedure TForm1.popolamemo;
+begin
+
+end;
+
+end.

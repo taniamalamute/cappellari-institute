@@ -1,0 +1,72 @@
+unit Fseats;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, freeseatspresenter, freeseatsinterface,freeseatsmodel;
+
+type
+  TForm2 = class(TForm, Iseatview)
+    Label1: TLabel;
+    Label2: TLabel;
+    RichiestaPosti: TEdit;
+    MemoDisplay: TMemo;
+    CheckDispButton: TButton;
+    GrigliaTeatro: TDBGrid;
+    procedure CheckDispButtonClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+   // procedure CheckDispButtonClick(Sender: TObject);
+  private
+    { Private declarations }
+     FseatPresenter: tseatpresenter;
+  public
+
+    { Public declarations }
+        function Getvalue:integer;
+  //  procedure popolagriglia;
+  //  procedure popolamemo;
+ //   procedure eseguicontrollo;
+    procedure DisplayMessage(AValue: string);
+
+  end;
+
+var
+  Form2: TForm2;
+
+  const APPTITLE = 'Titolo programma';
+implementation
+
+{$R *.dfm}
+
+procedure TForm2.DisplayMessage(AValue: string);
+begin
+  Application.MessageBox(PChar(AValue), PChar(APPTITLE), MB_OK);
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+fseatpresenter:=tseatpresenter.create(self);
+end;
+
+//procedure TForm2.CheckDispButtonClick(Sender: TObject);
+//begin
+////  DataModule1.DataSource1.DataSet.Open;
+// //  FseatPresenter.eseguicontrollo;
+//end;
+
+procedure TForm2.CheckDispButtonClick(Sender: TObject);
+begin
+//DataModule1.DataSource1.DataSet.Open;
+DataModule1.DataSource2.DataSet.Open;
+DataModule1.ADOQuery1.Open;
+ FseatPresenter.eseguicontrollo;
+end;
+
+function TForm2.Getvalue: integer;
+begin
+  result:=strtoint(richiestaposti.Text);
+end;
+
+end.

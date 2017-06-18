@@ -1,0 +1,119 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 356
+  Width = 363
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Password=94483ycWSmrC22893etWS995!5k88X;Pers' +
+      'ist Security Info=True;User ID=CorsoDelphiSQL;Initial Catalog=Fr' +
+      'eeSeatsDB;Data Source=corso-cappellari.database.windows.net'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 32
+    Top = 40
+  end
+  object ADOQuery1: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      ''
+      'with free as '
+      
+        '(select rownumber, seatnumber, taken, row_number() over (partiti' +
+        'on by rownumber order by seatnumber) as numeraliberi'
+      'from RoomsAndSeats'
+      'where taken = 0'
+      '),'
+      'adiacenti as'
+      
+        '(select rownumber, seatnumber, taken, count(*) over (partition b' +
+        'y rownumber, seatnumber-numeraliberi) as consecutivi'
+      'from free'
+      '),'
+      'estratti as'
+      '(select * from adiacenti where consecutivi>=3)'
+      'SELECT rownumber,'
+      '  count(CASE WHEN seatnumber = 1 THEN taken END) AS attr1,'
+      '  count(CASE WHEN seatnumber = 2 THEN taken END) AS attr2,'
+      '  count(CASE WHEN seatnumber = 3 THEN taken END) AS attr3,'
+      '  count(CASE WHEN seatnumber = 4 THEN taken END) AS attr4,'
+      '  count(CASE WHEN seatnumber = 5 THEN taken END) AS attr5,'
+      '  count(CASE WHEN seatnumber = 6 THEN taken END) AS attr6,'
+      '  count(CASE WHEN seatnumber = 7 THEN taken END) AS attr7,'
+      '  count(CASE WHEN seatnumber = 8 THEN taken END) AS attr8,'
+      '  count(CASE WHEN seatnumber = 9 THEN taken END) AS attr9,'
+      '  count(CASE WHEN seatnumber = 10 THEN taken END) AS attr10,'
+      '  count(CASE WHEN seatnumber = 11 THEN taken END) AS attr11,'
+      '  count(CASE WHEN seatnumber = 12 THEN taken END) AS attr12,'
+      '  count(CASE WHEN seatnumber = 13 THEN taken END) AS attr13,'
+      '  count(CASE WHEN seatnumber = 14 THEN taken END) AS attr14,'
+      '  count(CASE WHEN seatnumber = 15 THEN taken END) AS attr15,'
+      '  count(CASE WHEN seatnumber = 16 THEN taken END) AS attr16,'
+      '  count(CASE WHEN seatnumber = 17 THEN taken END) AS attr17,'
+      '  count(CASE WHEN seatnumber = 18 THEN taken END) AS attr18,'
+      '  count(CASE WHEN seatnumber = 19 THEN taken END) AS attr19,'
+      '  count(CASE WHEN seatnumber = 20 THEN taken END) AS attr20,'
+      '  count(CASE WHEN seatnumber = 21 THEN taken END) AS attr21,'
+      '  count(CASE WHEN seatnumber = 22 THEN taken END) AS attr22,'
+      '  count(CASE WHEN seatnumber = 23 THEN taken END) AS attr23,'
+      '  count(CASE WHEN seatnumber = 24 THEN taken END) AS attr24,'
+      '  count(CASE WHEN seatnumber = 25 THEN taken END) AS attr25,'
+      '  count(CASE WHEN seatnumber = 26 THEN taken END) AS attr26,'
+      '  count(CASE WHEN seatnumber = 27 THEN taken END) AS attr27,'
+      '  count(CASE WHEN seatnumber = 28 THEN taken END) AS attr28,'
+      '  count(CASE WHEN seatnumber = 29 THEN taken END) AS attr29,'
+      '  count(CASE WHEN seatnumber = 30 THEN taken END) AS attr30,'
+      '  count(CASE WHEN seatnumber = 31 THEN taken END) AS attr31,'
+      '  count(CASE WHEN seatnumber = 32 THEN taken END) AS attr32,'
+      '  count(CASE WHEN seatnumber = 33 THEN taken END) AS attr33,'
+      '  count(CASE WHEN seatnumber = 34 THEN taken END) AS attr34,'
+      '  count(CASE WHEN seatnumber = 35 THEN taken END) AS attr35,'
+      '  count(CASE WHEN seatnumber = 36 THEN taken END) AS attr36,'
+      '  count(CASE WHEN seatnumber = 37 THEN taken END) AS attr37,'
+      '  count(CASE WHEN seatnumber = 38 THEN taken END) AS attr38,'
+      '  count(CASE WHEN seatnumber = 39 THEN taken END) AS attr39,'
+      '  count(CASE WHEN seatnumber = 40 THEN taken END) AS attr40'
+      '  FROM estratti'
+      'GROUP BY rownumber '
+      '')
+    Left = 208
+    Top = 112
+  end
+  object ADOTable1: TADOTable
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'RoomsAndSeats'
+    Left = 208
+    Top = 48
+    object ADOTable1RoomID: TIntegerField
+      FieldName = 'RoomID'
+    end
+    object ADOTable1SeatID: TAutoIncField
+      FieldName = 'SeatID'
+      ReadOnly = True
+    end
+    object ADOTable1RowNumber: TStringField
+      FieldName = 'RowNumber'
+      FixedChar = True
+      Size = 1
+    end
+    object ADOTable1SeatNumber: TSmallintField
+      FieldName = 'SeatNumber'
+    end
+    object ADOTable1Taken: TBooleanField
+      FieldName = 'Taken'
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOTable1
+    Left = 112
+    Top = 48
+  end
+  object DataSource2: TDataSource
+    DataSet = ADOQuery1
+    Left = 112
+    Top = 112
+  end
+end

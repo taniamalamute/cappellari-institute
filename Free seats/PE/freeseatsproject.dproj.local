@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/06/15 11:55:25.000.476,=C:\Users\i5\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/16 15:04:04.000.805,=C:\Users\i5\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/16 15:07:15.000.488,C:\delphilocale\freeseats\freeseatsview.pas=C:\Users\i5\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/16 15:07:15.000.488,C:\delphilocale\freeseats\freeseatsview.dfm=C:\Users\i5\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2017/06/16 15:08:00.000.606,C:\delphilocale\freeseats\freeseatsproject.dproj=C:\Users\i5\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2017/06/16 15:47:10.000.921,=C:\delphilocale\freeseats\Unit1.pas</Transaction>
+    <Transaction>2017/06/16 15:47:51.000.125,C:\delphilocale\freeseats\freeseatsinterface.pas=C:\delphilocale\freeseats\Unit1.pas</Transaction>
+    <Transaction>2017/06/16 15:48:35.000.655,=C:\delphilocale\freeseats\Unit1.pas</Transaction>
+    <Transaction>2017/06/16 15:49:00.000.427,C:\delphilocale\freeseats\freeseatsmodel.dfm=C:\delphilocale\freeseats\Unit1.dfm</Transaction>
+    <Transaction>2017/06/16 15:49:00.000.427,C:\delphilocale\freeseats\freeseatsmodel.pas=C:\delphilocale\freeseats\Unit1.pas</Transaction>
+    <Transaction>2017/06/16 15:50:56.000.707,=C:\delphilocale\freeseats\Unit1.pas</Transaction>
+    <Transaction>2017/06/16 15:51:16.000.323,C:\delphilocale\freeseats\freeseatspresenter.pas=C:\delphilocale\freeseats\Unit1.pas</Transaction>
+    <Transaction>2017/06/17 09:57:52.000.293,=C:\delphilocale\freeseats\Unit2.pas</Transaction>
+    <Transaction>2017/06/17 09:58:16.000.088,C:\delphilocale\freeseats\Unit2.dfm=C:\delphilocale\freeseats\Fseats.dfm</Transaction>
+    <Transaction>2017/06/17 09:58:16.000.088,C:\delphilocale\freeseats\Unit2.pas=C:\delphilocale\freeseats\Fseats.pas</Transaction>
+    <Transaction>2017/06/17 10:12:43.000.344,C:\delphilocale\freeseats\freeseatsview.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

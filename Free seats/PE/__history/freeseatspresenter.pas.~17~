@@ -1,0 +1,63 @@
+unit freeseatspresenter;
+
+interface
+
+uses freeseatsinterface,freeseatsmodel;
+const postiperfila =40;
+type
+tseatpresenter =class
+  protected
+  Fseatview:Iseatview;
+  public
+  Constructor create(Aseatview: Iseatview);
+  procedure eseguicontrollo;
+end;
+
+implementation
+
+uses system.sysutils,system.classes;
+
+Constructor tseatpresenter.create(Aseatview: Iseatview);
+begin
+  Fseatview:=Aseatview;
+end;
+
+procedure tseatpresenter.eseguicontrollo;
+var Lgetval:integer;
+Lindice:integer;
+stringapp,camponome:string;
+test:tstrings;
+begin
+
+ // Fseatview.popolamemo('');
+
+  lgetval:=Fseatview.Getvalue;
+//DataModule1.DataSource2.DataSet.Open;
+  DataModule1.ADOQuery1.Open;
+  DataModule1.ADOQuery1.first;
+  //Fseatview.DisplayMessage(inttostr(DataModule1.DataSource2.DataSet.RecordCount));
+ // SQLQuery1.First; // move to the first record
+while(not DataModule1.ADOQuery1.EOF)do begin
+    //  Fseatview.popolamemo(Tstrings(DataModule1.ADOQuery1.Fields[1].AsString));
+ //     Fseatview.popolamemo(Tstrings(DataModule1.ADOQuery1.FieldByName('attr1').AsString));
+  stringapp:=(DataModule1.ADOQuery1.FieldByName('rownumber').AsString);
+  for Lindice := 1 to postiperfila do
+  begin
+     camponome:='attr'+inttostr(lindice);
+      if DataModule1.ADOQuery1.FieldByName(camponome).Asinteger =1 then
+      begin
+        stringapp:=stringapp+'-'+inttostr(Lindice);
+      end;
+  end;
+  // test.Add(stringapp);
+   Fseatview.popolamemo(stringapp);
+   stringapp:='';
+   //test.Clear;
+   DataModule1.ADOQuery1.Next;
+end;
+
+ // Fseatview.DisplayMessage('eseguo controllo');
+
+end;
+
+end.

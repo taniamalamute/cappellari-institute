@@ -1,0 +1,103 @@
+unit Fseats;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, freeseatspresenter, freeseatsinterface,freeseatsmodel;
+
+type
+  TForm2 = class(TForm, Iseatview)
+    Label1: TLabel;
+    Label2: TLabel;
+    RichiestaPosti: TEdit;
+    MemoDisplay: TMemo;
+    CheckDispButton: TButton;
+    GrigliaTeatro: TDBGrid;
+    procedure CheckDispButtonClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure RichiestaPostiKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+     FseatPresenter: tseatpresenter;
+  public
+    { Public declarations }
+        function Getvalue:integer;
+  //  procedure popolagriglia;
+    procedure popolamemo(Avalue:string);
+    procedure DisplayMessage(AValue: string);
+
+  end;
+
+var
+  Form2: TForm2;
+  const APPTITLE = 'Gestione Posti Liberi';
+  const postiperfila = 40;
+  implementation
+
+{$R *.dfm}
+
+procedure TForm2.DisplayMessage(AValue: string);
+begin
+  Application.MessageBox(PChar(AValue), PChar(APPTITLE), MB_OK);
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+fseatpresenter:=tseatpresenter.create(self);
+end;
+procedure TForm2.popolamemo(AValue: String);
+begin
+  memodisplay.Lines.add(AValue);
+end;
+
+procedure TForm2.RichiestaPostiKeyPress(Sender: TObject; var Key: Char);
+begin
+  // #8 = Backspace
+  if not (Key in [#8, '0'..'9']) then begin
+    DisplayMessage('Inserire valore numerico.');
+    // Scarta il valore
+    Key := #0;
+  end;
+end;
+
+procedure TForm2.CheckDispButtonClick(Sender: TObject);
+var condizione1,condizione2, condizione3:string;
+Lconta:integer;
+begin
+
+MemoDisplay.Lines.Clear;
+
+condizione1:='with free as (select rownumber, seatnumber, taken, row_number() over (partition by rownumber order by seatnumber) as numeraliberi from RoomsAndSeats ';
+condizione1:=condizione1+ 'where taken = 0),';
+condizione1:=condizione1+ 'adiacenti as (select rownumber, seatnumber, taken, count(*) over (partition by rownumber, seatnumber-numeraliberi) as consecutivi ';
+condizione1:=condizione1+ 'from free), estratti as (select * from adiacenti where ';
+condizione1:=condizione1+ 'consecutivi>='+ RichiestaPosti.Text +') ';
+
+condizione1:=condizione1+ 'SELECT rownumber, ';
+for Lconta:=1 to postiperfila-1 do
+begin
+condizione1:=condizione1+ 'count(CASE WHEN seatnumber = '+ inttostr(Lconta)+ ' THEN taken END) AS attr'+ inttostr(Lconta);
+condizione1:=condizione1+',';
+end;
+condizione1:=condizione1+ 'count(CASE WHEN seatnumber = '+ inttostr(postiperfila)+ ' THEN taken END) AS attr'+ inttostr(postiperfila);
+condizione1:=condizione1+ ' FROM estratti GROUP BY rownumber';
+//showmessage(condizione1);
+
+//DataModule1.DataSource1.DataSet.Open;
+DataModule1.DataSource2.DataSet.Open;
+DataModule1.ADOQuery1.sql.Clear;
+
+DataModule1.ADOQuery1.SQL.Add(condizione1);
+DataModule1.ADOQuery1.Open;
+
+FseatPresenter.eseguicontrollo;
+end;
+
+function TForm2.Getvalue: integer;
+begin
+  result:=strtoint(richiestaposti.Text);
+end;
+
+end.
