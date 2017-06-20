@@ -16,8 +16,8 @@ object DataModule5: TDataModule5
   object ADOQryFreeSeats: TADOQuery
     Connection = ADOConnectionFreeSeats
     Parameters = <>
-    Left = 168
-    Top = 40
+    Left = 184
+    Top = 24
   end
   object DataSource1: TDataSource
     DataSet = ADOQryFreeSeats
@@ -27,8 +27,8 @@ object DataModule5: TDataModule5
   object ADOQrySeats: TADOQuery
     Connection = ADOConnectionFreeSeats
     Parameters = <>
-    Left = 260
-    Top = 40
+    Left = 284
+    Top = 32
   end
   object DataSource2: TDataSource
     DataSet = ADOQrySeats
