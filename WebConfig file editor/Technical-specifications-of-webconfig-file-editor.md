@@ -7,7 +7,7 @@ Technical specifications
 
 Web.config are XML files containing all the configurations and options required to run an application developed in Microsoft ASP.NET.
 
-The power of this tool is: using your application, users will able to modify some areas (in a Web.config file), described later, without knowing the XML standard!
+The power of this tool is: using your application, users will able to modify some areas (in a Web.config file), described later, without knowing the XML standard! A sample copy of the file Web.config is in your folder.
 
 
 Connection strings
