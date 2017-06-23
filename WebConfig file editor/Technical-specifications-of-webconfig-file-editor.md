@@ -134,11 +134,6 @@ Web.config file always contains a section called <roleManager> which have a sect
 
 For Membership, Profile and Role manager sections, the vale of applicationName (in a single Web.config file) is always the same. For better usability, visualize this value ones in the editor UI.
 
-
-Goals to achieve
-----------------
-
-
 Folders organization
 --------------------
 In the [cappellari-institute/WebConfig file editor/](https://github.com/segovoni/cappellari-institute/tree/master/WebConfig%20file%20editor) folder there is one sub-folder for each of you, the subfolder name is composed by the first character of your lastname plus the first character of your firstname. For example, my subfolder is GS. Put all your files in your subfolder (you can also create subfolders in your folder), try to do a well organization of your files.
