@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Ricerca Posti Adiacenti'
-  ClientHeight = 209
-  ClientWidth = 591
+  ClientHeight = 261
+  ClientWidth = 573
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,7 @@ object Form1: TForm1
     Left = 309
     Top = 35
     Width = 252
-    Height = 120
-    DataSource = DataModule5.DataSource1
+    Height = 218
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

@@ -15,16 +15,17 @@ unit Model;
 interface
 
 uses
-  System.Classes, IModel, IFindSeats, DataModule;
+  System.Classes, IModel, IFindSeats, DataModule, Data.DB;
 
 type
   TModel = class (TInterfacedObject, IModelDB)
-  public
-    constructor create (AFindSeats: IFindSeatsP);
-    procedure FindSeatsNumber (ASeats : string);
   private
     function QueryFindSeats (ARoom, ASeatsNumber : string) : string;
-end;
+  public
+    constructor create (AFindSeats: IFindSeatsP);
+    //procedure FindSeatsNumber(ASeats : string);
+    function FindSeatsNumber(ASeats: string): TDataSource;
+  end;
 
 implementation
 
@@ -39,7 +40,8 @@ begin
 end;
 
 // setto la query e la avvio
-procedure TModel.FindSeatsNumber(ASeats: string) ;
+//procedure TModel.FindSeatsNumber(ASeats: string) ;
+function TModel.FindSeatsNumber(ASeats: string): TDataSource;
 begin
   DataModule5.CloseQry;
   DataModule5.ClearQry;
@@ -48,7 +50,10 @@ begin
   DataModule5.SetQry(QueryFindSeats('1',ASeats));
   DataModule5.OpenQry;
 
-  FFindSeats.SendQueryToView(DataModule5.DataSource1);
+  //FFindSeats.SendQueryToView(DataModule5.DataSource1);
+  //FFindSeats.SendQueryToView(DataModule5);
+
+  Result := DataModule5.DataSource1;
 end;
 
 

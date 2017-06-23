@@ -15,15 +15,14 @@ unit IModel;
 interface
 
 uses
-  System.Classes;
+  System.Classes, Data.DB;
 
 type
   IModelDB = interface
   ['{A00317B9-6708-4434-BB08-A42A22490FA2}']
-
-  procedure FindSeatsNumber (ASeats : string);
-  function QueryFindSeats (ARoom, ASeatsNumber : string) : string;
-
+    //procedure FindSeatsNumber (ASeats : string);
+    function FindSeatsNumber(ASeats: string): TDataSource;
+    //function QueryFindSeats(ARoom, ASeatsNumber: string): string;
   end;
 
 implementation

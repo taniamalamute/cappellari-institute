@@ -15,24 +15,26 @@ unit PFindSeats;
 interface
 
 uses
-  IFindSeats, IFreeSeats, Model, Data.DB;
+  IFindSeats, IFreeSeats, IModel, Model, Data.DB;
 
 type
   TFindSeats = class (TInterfacedObject, IFindSeatsP)
   private
-
+    FFreeSeatsView: IFreeSeatsView;
+    FModel: IModelDB;
+    //procedure SendSeatsNumberToModel(ASeats: string);
   public
     constructor Create (AFreeSeatsView : IFreeSeatsView);
-    procedure SendSeatsNumberToModel (ASeats : string);
-    procedure SendQueryToView (ADataSource : TDataSource);
-end;
+    destructor Destroy; override;
+    procedure SearchFreeSeats{SendSeatsNumberToModel(ASeats: string)};
+    //procedure SendQueryToView (ADataSource : TDataSource);
+  end;
 
 implementation
 
-var
-   FFreeSeatsView : IFreeSeatsView;
-   FModel : TModel;
-
+//var
+ //FFreeSeatsView : IFreeSeatsView;
+ //FModel : TModel;
 
 { TFindSeats }
 
@@ -43,15 +45,25 @@ begin
 end;
 
 // passo alla view il datasource da collegare alla grid
-procedure TFindSeats.SendQueryToView(ADataSource: TDataSource);
-begin
-  FFreeSeatsView.ReciveDBGridDataModule(ADataSource);
-end;
+//procedure TFindSeats.SendQueryToView(ADataSource: TDataSource);
+//begin
+//  FFreeSeatsView.ReciveDBGridDataModule(ADataSource);
+//end;
 
 // passo al model il numero di posti da cercare
-procedure TFindSeats.SendSeatsNumberToModel(ASeats: string);
+destructor TFindSeats.Destroy;
 begin
-     FModel.FindSeatsNumber(ASeats);
+  inherited;
 end;
+
+procedure TFindSeats.SearchFreeSeats;
+begin
+  FFreeSeatsView.SetResult(FModel.FindSeatsNumber(FFreeSeatsView.GetSeatsNumber));
+end;
+
+//procedure TFindSeats.SendSeatsNumberToModel(ASeats: string);
+//begin
+//  FModel.FindSeatsNumber(ASeats);
+//end;
 
 end.
