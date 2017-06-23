@@ -114,6 +114,27 @@ Web.config file always contains a section called <profile> which have a section 
 </profile>
 ```
 
+Role manager
+------------
+Web.config file always contains a section called <roleManager> which have a section called <Providers> where the AspNetSqlRoleProvider and AspNetWindowsTokenRoleProvider properties are located. The WebConfig editor must be able to set the value of the "applicationName" of these fields.
+
+```XML
+<roleManager enabled="false">
+  <providers>
+    <clear />
+    <add name="AspNetSqlRoleProvider" type="System.Web.Security.SqlRoleProvider" 
+    connectionStringName="ApplicationServices" 
+    applicationName="APPNAME" />
+    <add name="AspNetWindowsTokenRoleProvider" 
+    type="System.Web.Security.WindowsTokenRoleProvider" 
+    applicationName="APPNAME" />
+  </providers>
+</roleManager>
+```
+
+For Membership, Profile and Role manager sections, the vale of applicationName (in a single Web.config file) is always the same. For better usability, visualize this value ones in the editor UI.
+
+
 Goals to achieve
 ----------------
 
