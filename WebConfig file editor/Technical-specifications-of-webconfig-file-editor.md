@@ -37,6 +37,45 @@ Following there is an example of the section <connectionStrings> contained in a 
   </connectionStrings>
 ```
 
+As you can see, there are three different connection strings:
+
+- ApplicationServices
+- Database1
+- Database2
+
+Each connection string is also usually preceded by an explanatory comment enclosed by this pattern <! - ->, which should be inserted by WebConfig editor for greater user clarity. The comment is not always present in the input file.
+
+
+Options
+-------
+Web.config files always contains a section called <appSettings> within it, all the options (key/value) used by the application are specified. The editor have to read all options in the Web.config dynamically and allow users to modify and save the value of each option that is specified here. The keys must be placed (in the user interface) in the same order as they appear inside the Web.config file.
+
+Below you can find an example of the <appSettings> section.
+
+```XML
+<appSettings>
+ […]
+  <!-- URL del WebService -->
+  <add key="WebServiceURL" value="http://dragon:92/WebXX.dll/check" />
+  <!-- E-mail addresses to send errors (comma separated) -->
+  <add key="ErrorNotificationEmailAddress" value="user@company.com" />
+  <!-- E-mail address used as sender for outcoming mail to customer -->
+  <add key="CompanyEmailAddress" value="no-reply@company.com" />
+  <!-- Company name -->
+  <add key="CompanyName" value="Company Name spa" />
+  <!-- Language: flags, dropdownlist -->
+  <add key="SelectLanguageStyle" value="dropdownlist" />
+  <!-- Path for PDF files -->
+  <add key="PdfPath" value="" />
+  <!-- Enable/disable news -->
+  <add key="ShowNews" value="true" />
+  <!-- Enable/disable recent news -->
+  <add key="ShowRecentNews" value="true" />
+  <!-- Number of recent news -->
+  <add key="NumberOfRecentNews" value="2" />
+ […]
+<appSettings>
+```
 
 Goals to achieve
 ----------------
