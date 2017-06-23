@@ -22,7 +22,20 @@ The WebConfig file editor must be able to reads all the connection strings speci
 - User ID
 - Password
 
-Following there is an example of the section <connectionStrings> contained in a Web.config file
+Following there is an example of the section <connectionStrings> contained in a Web.config file:
+
+```XML
+<connectionStrings>
+<!-- Stringa di connessione al database - ApplicationServices -->
+<add name="ApplicationServices" connectionString="Data Source=SERVERNAME;Initial Catalog=DATABASENAME;User ID=USERNAME;Password=PASSWORD; providerName="System.Data.SqlClient" />
+
+<!-- Stringa di connessione al database 1 -->
+<add name="Database1" connectionString="metadata=res://*/Database.Portals.DB.csdl|res://*/Database.Portals.DB.ssdl|res://*/Database.Portals.DB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SERVERNAME;initial catalog=DATABASENAME;User ID=USERNAME;Password=PASSWORD;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+
+<!-- Stringa di connessione al database 2 -->
+<add name="Database2" connectionString="metadata=res://*/Database.Fornitori.DB.csdl|res://*/Database.Fornitori.DB.ssdl|res://*/Database.Fornitori.DB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SERVERNAME;initial catalog=DATABASENAME;User ID=USERNAME;Password=PASSWORD;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+```
 
 
 Goals to achieve
