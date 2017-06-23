@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{2120BD7E-7418-4BAD-9AD5-9DB935B7CB5D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="GG\FreeSeats.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PE\freeseatsproject.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FreeSeats">
+        <MSBuild Projects="GG\FreeSeats.dproj"/>
+    </Target>
+    <Target Name="FreeSeats:Clean">
+        <MSBuild Projects="GG\FreeSeats.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FreeSeats:Make">
+        <MSBuild Projects="GG\FreeSeats.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="freeseatsproject">
+        <MSBuild Projects="PE\freeseatsproject.dproj"/>
+    </Target>
+    <Target Name="freeseatsproject:Clean">
+        <MSBuild Projects="PE\freeseatsproject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="freeseatsproject:Make">
+        <MSBuild Projects="PE\freeseatsproject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FreeSeats;freeseatsproject"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FreeSeats:Clean;freeseatsproject:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FreeSeats:Make;freeseatsproject:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
