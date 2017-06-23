@@ -1,0 +1,33 @@
+unit PresenterFreeSeats;
+
+interface
+
+uses InterfaceFreeSeats, ModelFreeSeats;
+
+type TPresenterFreeSeats = class
+    private
+        FViewFreeSeats: IFreeSeats;
+        FModelFreeSeats: TModelFreeSeats;
+    published
+        constructor Create(AViewFreeSeats: IFreeSeats);
+        procedure ShowSeats;
+end;
+
+implementation
+
+{ TPresenterFreeSeats }
+
+constructor TPresenterFreeSeats.Create(AViewFreeSeats: IFreeSeats);
+begin
+    FViewFreeSeats:=AViewFreeSeats;
+end;
+
+procedure TPresenterFreeSeats.ShowSeats;
+var LNearbySeats: string;
+begin
+    LNearbySeats:=FViewFreeSeats.GetNearbySeats;
+    FModelFreeSeats:=TModelFreeSeats.Create(LNearbySeats);
+    FModelFreeSeats.GetAvailableSeats;
+end;
+
+end.

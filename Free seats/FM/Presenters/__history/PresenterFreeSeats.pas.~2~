@@ -1,0 +1,18 @@
+unit PresenterFreeSeats;
+
+interface
+
+uses InterfaceFreeSeats, ModelFreeSeats;
+
+type TPresenterFreeSeats = class
+    private
+        FViewFreeSeats: IFreeSeats;
+        FModelFreeSeats: TModelFreeSeats;
+    published
+        constructor Create(AViewFreeSeats: IFreeSeats);
+        procedure ShowSeats;
+end;
+
+implementation
+
+end.
