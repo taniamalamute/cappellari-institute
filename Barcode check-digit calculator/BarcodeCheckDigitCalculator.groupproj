@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{B4007FBF-A6D2-4BCD-9E36-46E1F3436032}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="GG\CheckDigitCalculator.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PE\BarcodesCheck.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CheckDigitCalculator">
+        <MSBuild Projects="GG\CheckDigitCalculator.dproj"/>
+    </Target>
+    <Target Name="CheckDigitCalculator:Clean">
+        <MSBuild Projects="GG\CheckDigitCalculator.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CheckDigitCalculator:Make">
+        <MSBuild Projects="GG\CheckDigitCalculator.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BarcodesCheck">
+        <MSBuild Projects="PE\BarcodesCheck.dproj"/>
+    </Target>
+    <Target Name="BarcodesCheck:Clean">
+        <MSBuild Projects="PE\BarcodesCheck.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BarcodesCheck:Make">
+        <MSBuild Projects="PE\BarcodesCheck.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CheckDigitCalculator;BarcodesCheck"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CheckDigitCalculator:Clean;BarcodesCheck:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CheckDigitCalculator:Make;BarcodesCheck:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
