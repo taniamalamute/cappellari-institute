@@ -27,7 +27,7 @@ Following there is an example of the section <connectionStrings> contained in a 
 ```XML
 <connectionStrings>
 <!-- Stringa di connessione al database - ApplicationServices -->
-<add name="ApplicationServices" connectionString="Data Source=SERVERNAME;Initial Catalog=DATABASENAME;User ID=USERNAME;Password=PASSWORD; providerName="System.Data.SqlClient" />
+<add name="ApplicationServices" connectionString="Data Source=SERVERNAME;Initial Catalog=DATABASENAME;User ID=USERNAME;Password=PASSWORD" providerName="System.Data.SqlClient" />
 
 <!-- Stringa di connessione al database 1 -->
 <add name="Database1" connectionString="metadata=res://*/Database.Portals.DB.csdl|res://*/Database.Portals.DB.ssdl|res://*/Database.Portals.DB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SERVERNAME;initial catalog=DATABASENAME;User ID=USERNAME;Password=PASSWORD;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
