@@ -43,7 +43,7 @@ As you can see, there are three different connection strings:
 - Database1
 - Database2
 
-Each connection string is also usually preceded by an explanatory comment enclosed by this pattern <! - ->, which should be inserted by WebConfig editor for greater user clarity. The comment is not always present in the input file.
+Each connection string is also usually preceded by an explanatory comment enclosed by this pattern < !--  -- >, which should be inserted by WebConfig editor for greater user clarity. The comment is not always present in the input file.
 
 
 Options
@@ -75,6 +75,43 @@ Below you can find an example of the <appSettings> section.
   <add key="NumberOfRecentNews" value="2" />
  […]
 <appSettings>
+```
+
+Each connection string is usually preceded by an explanatory comment enclosed by this pattern < !--  -- >, which should be inserted by WebConfig editor for greater user clarity. The comment is not always present in the input file.
+
+
+Membership
+----------
+Web.config file always contains a section called <membership> which have a section called <Provider> where the AspNetSqlMembershipProvider property is located. The WebConfig editor must be able to set the value of the "applicationName" field.
+
+```XML
+<membership>
+  <providers>
+    <clear />
+    <add name="AspNetSqlMembershipProvider"     
+    type="System.Web.Security.SqlMembershipProvider" 
+    connectionStringName="ApplicationServices" enablePasswordRetrieval="false" 
+    enablePasswordReset="true" requiresQuestionAndAnswer="false"  
+    requiresUniqueEmail="false" maxInvalidPasswordAttempts="20" 
+    minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" 
+    passwordAttemptWindow="10" applicationName="APPNAME" />
+  </providers>
+</membership>
+```
+
+Profile
+-------
+Web.config file always contains a section called <profile> which have a section called <Providers> where the AspNetSqlProfileProvider property is located. The WebConfig editor must be able to set the value of the "applicationName" field.
+
+```XML
+<profile>
+  <providers>
+    <clear />
+    <add name="AspNetSqlProfileProvider" type="System.Web.Profile.SqlProfileProvider"   
+     connectionStringName="ApplicationServices"  
+     applicationName="APPNAME" />
+  </providers>
+</profile>
 ```
 
 Goals to achieve
