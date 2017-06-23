@@ -9,8 +9,7 @@ uses
   IDataModule in 'IDataModule.pas',
   DataModule in 'DataModule.pas' {DataModule5: TDataModule},
   Model in 'Model.pas',
-  IModel in 'IModel.pas',
-  MyClass_TDBText in 'MyClass_TDBText.pas';
+  IModel in 'IModel.pas';
 
 {$R *.res}
 
