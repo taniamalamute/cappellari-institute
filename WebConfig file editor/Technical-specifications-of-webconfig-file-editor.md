@@ -1,4 +1,4 @@
-# WebConfig file editor
+# WebConfig editor
 
 The exercise consists to develop a VCL application, using Delphi language, that is able to configure a Web.config file as described in the technical specifications section. The VCL application must be developped using Model-View-Presenter design pattern.
 
