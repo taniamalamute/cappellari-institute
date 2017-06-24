@@ -2,7 +2,7 @@ object Formview: TFormview
   Left = 0
   Top = 0
   Caption = 'Formview'
-  ClientHeight = 423
+  ClientHeight = 341
   ClientWidth = 779
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object Formview: TFormview
     Top = 21
     Width = 70
     Height = 13
-    Caption = 'iinserisci i posti'
+    Caption = 'Inserisci i posti'
   end
   object Label2: TLabel
     Left = 264
@@ -28,27 +28,27 @@ object Formview: TFormview
     Height = 13
     Caption = 'POSTI DISPONIBILI'
   end
-  object Edit1: TEdit
+  object edtRequiredSeats: TEdit
     Left = 24
     Top = 40
-    Width = 121
+    Width = 193
     Height = 21
     TabOrder = 0
   end
   object Button1: TButton
-    Left = 70
-    Top = 92
-    Width = 75
-    Height = 25
+    Left = 24
+    Top = 83
+    Width = 193
+    Height = 62
     Caption = 'CERCA'
     TabOrder = 1
     OnClick = Button1Click
   end
   object Memo1: TMemo
     Left = 264
-    Top = 48
-    Width = 473
-    Height = 273
+    Top = 40
+    Width = 507
+    Height = 281
     Lines.Strings = (
       '')
     ScrollBars = ssVertical

@@ -11,9 +11,7 @@ type
     ADOQuery1: TADOQuery;
     DataSource1: TDataSource;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
