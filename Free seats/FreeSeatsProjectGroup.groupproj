@@ -9,6 +9,9 @@
         <Projects Include="PE\freeseatsproject.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="SM\RoomSeatsProject.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="freeseatsproject:Make">
         <MSBuild Projects="PE\freeseatsproject.dproj" Targets="Make"/>
     </Target>
+    <Target Name="RoomSeatsProject">
+        <MSBuild Projects="SM\RoomSeatsProject.dproj"/>
+    </Target>
+    <Target Name="RoomSeatsProject:Clean">
+        <MSBuild Projects="SM\RoomSeatsProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RoomSeatsProject:Make">
+        <MSBuild Projects="SM\RoomSeatsProject.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="FreeSeats;freeseatsproject"/>
+        <CallTarget Targets="FreeSeats;freeseatsproject;RoomSeatsProject"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="FreeSeats:Clean;freeseatsproject:Clean"/>
+        <CallTarget Targets="FreeSeats:Clean;freeseatsproject:Clean;RoomSeatsProject:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="FreeSeats:Make;freeseatsproject:Make"/>
+        <CallTarget Targets="FreeSeats:Make;freeseatsproject:Make;RoomSeatsProject:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
