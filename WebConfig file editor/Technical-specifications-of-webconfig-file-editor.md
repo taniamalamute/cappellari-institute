@@ -1,21 +1,21 @@
 # WebConfig editor
 
-The exercise consists to develop a VCL application, using Delphi language, that is able to configure a Web.config file as described in the technical specifications section. The VCL application must be developped using Model-View-Presenter design pattern.
+The exercise consists to develop a VCL application, using Delphi language, that is able to manage (visualize and save) some sections in a Web.config file as described in the technical specifications section. The VCL application must be developped using Model-View-Presenter design pattern.
 
 Technical specifications
 ========================
 
-Web.config are XML files containing all the configurations and options required to run an application developed in Microsoft ASP.NET.
+Web.config is an XML file containing all the configurations and options required to run an application developed in Microsoft ASP.NET.
 
-The power of this tool is: using your application, users will able to modify some areas (in a Web.config file), described later, without knowing the XML standard! A sample copy of the file Web.config is in your folder.
+The power of this tool is: Using the application, users will able to modify some sections (in the Web.config file), without knowing the standard XML! A sample copy of the file Web.config is in your folder.
 
 
 Connection strings
 ------------------
 
-Web.config files always have an XML section called <connectionStrings> within all connection strings to different databases (used in a Microsoft ASP.NET application) are specified.
+Web.config files always have an XML section called <connectionStrings>, within it, all connection strings to different databases (used in a Microsoft ASP.NET application) are specified.
 
-The WebConfig file editor must be able to reads all the connection strings specified in a Web.config file and allows users to modify the following values:
+The WebConfig editor must be able to reads all the connection strings specified in a Web.config file and allows users to modify the following values:
 
 - Data Source (SQL Server Instance)
 - Initial Catalog (Database)
@@ -43,12 +43,12 @@ As you can see, there are three different connection strings:
 - Database1
 - Database2
 
-Each connection string is also usually preceded by an explanatory comment enclosed by this pattern < !--  -- >, which should be inserted by WebConfig editor for greater user clarity. The comment is not always present in the input file.
+Each connection string is usually preceded by an explanatory comment enclosed by this pattern < !--  -- >, which should be inserted into the Web.Config file for greater user clarity. The comment is not always present in the input file.
 
 
 Options
 -------
-Web.config files always contains a section called <appSettings> within it, all the options (key/value) used by the application are specified. The editor have to read all options in the Web.config dynamically and allow users to modify and save the value of each option that is specified here. The keys must be placed (in the user interface) in the same order as they appear inside the Web.config file.
+Web.config files always contains a section called <appSettings>, within it, all the options (key/value) used by the application are specified. The editor have to read all options in the Web.config dynamically and allow users to modify and save the value of each option that is specified here. The keys must be placed (in the user interface) in the same order as they appear inside the Web.config file.
 
 Below you can find an example of the <appSettings> section.
 
