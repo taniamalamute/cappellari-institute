@@ -1,0 +1,46 @@
+unit ModelCheckDigitCalculator;
+
+interface
+
+uses DataModuleCheckDigitCalculator;
+
+type TModelCheckDigitCalculator = class
+        FIncompleteBarcode: int64;
+    public
+        function GetCheckDigit(): integer;
+        procedure SetSQL;
+    published
+        constructor Create(AIncompleteBarcode: int64);
+end;
+
+implementation
+
+{ TModelCheckDigitCalculator }
+
+constructor TModelCheckDigitCalculator.Create(AIncompleteBarcode: int64);
+begin
+    FIncompleteBarcode:=AIncompleteBarcode;
+end;
+
+function TModelCheckDigitCalculator.GetCheckDigit: integer;
+begin
+
+end;
+
+procedure TModelCheckDigitCalculator.SetSQL;
+var Li, LCount: integer;
+begin
+    LCount:=DataModuleCheckDigitCalculator.DataModuleCheckDigit.QueryFunctionCheckDigit.SQL.Count;
+    if (LCount > 1) then begin
+        while not (DataModuleCheckDigitCalculator.DataModuleCheckDigit.QueryFunctionCheckDigit.SQL.Count = 1) do begin
+            DataModuleCheckDigitCalculator.DataModuleCheckDigit.QueryFunctionCheckDigit.SQL.Delete(1);
+        end;
+    end;
+
+    DataModuleCheckDigitCalculator.DataModuleCheckDigit.QueryFunctionCheckDigit.SQL.Add(DataModuleCheckDigitCalculator.DataModuleCheckDigit);
+    DataModuleCheckDigitCalculator.DataModuleCheckDigit.QueryFunctionCheckDigit.SQL.Add(DataModuleFreeSeats.QueryFreeSeatsEnd);
+
+    DataModuleCheckDigitCalculator.DataModuleCheckDigit.QueryFunctionCheckDigit.Open;
+end;
+
+end.

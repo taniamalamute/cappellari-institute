@@ -1,0 +1,18 @@
+unit PresenterCheckDigitCalculator;
+
+interface
+
+uses InterfaceCheckDigitCalculator;
+
+type TPresenterCheckDigitCalculator = class
+    private
+        FViewCheckDigitCalculator: ICheckDigitCalculator;
+    public
+        procedure ShowCheckDigit();
+    published
+        constructor Create(AViewCheckDigitCalculator: ICheckDigitCalculator);
+end;
+
+implementation
+
+end.

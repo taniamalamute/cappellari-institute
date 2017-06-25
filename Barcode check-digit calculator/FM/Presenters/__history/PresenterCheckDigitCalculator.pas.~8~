@@ -1,0 +1,48 @@
+unit PresenterCheckDigitCalculator;
+
+interface
+
+uses InterfaceCheckDigitCalculator, ModelCheckDigitCalculator, SysUtils;
+
+type TPresenterCheckDigitCalculator = class
+    private
+        FViewCheckDigitCalculator: ICheckDigitCalculator;
+        FModel: TModelCheckDigitCalculator;
+    public
+        procedure ShowCheckDigit();
+    published
+        constructor Create(AViewCheckDigitCalculator: ICheckDigitCalculator);
+end;
+
+implementation
+
+{ TPresenterCheckDigitCalculator }
+
+constructor TPresenterCheckDigitCalculator.Create(
+  AViewCheckDigitCalculator: ICheckDigitCalculator);
+begin
+    FViewCheckDigitCalculator:=AViewCheckDigitCalculator
+end;
+
+
+
+
+procedure TPresenterCheckDigitCalculator.ShowCheckDigit;
+var LIncompleteBarcode: int64;
+LCheckDigit: integer;
+LCompleteBarcode: string;
+begin
+    LIncompleteBarcode:=FViewCheckDigitCalculator.GetIncompleteBarcode;
+    if not (LIncompleteBarcode = 0) then begin
+        FModel:=TModelCheckDigitCalculator.Create(LIncompleteBarcode);
+        LCheckDigit:=FModel.GetCheckDigit;
+        FViewCheckDigitCalculator.SetCheckDigit(LCheckDigit);
+        LCompleteBarcode:=intToStr(LIncompleteBarcode)+intToStr(LCheckDigit);
+        FViewCheckDigitCalculator.SetCompleteBarcode(strToInt64(LCompleteBarcode));
+    end;
+end;
+
+
+
+
+end.
