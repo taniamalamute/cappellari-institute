@@ -6,7 +6,7 @@ The exercise consists to develop a sample VCL application, using Delphi language
 Technical specifications
 ------------------------
 
-The UCC/EAN standard coding requires that every (well formed) barcode ends with a check-digit that will be used by barcode readers to interpret the code properly. The check-digit is a number between zero and nine (0-9) and it is calculated according to the other digits in the code. The calculation algorithm requires that every digit in the code is enumerated from right to left as shown in the following picture (source: [GS1](https://www.gs1.org/how-calculate-check-digit-manually)).
+The UCC/EAN standard coding requires that every (well formed) barcode ends with a check-digit that will be used by barcode readers to interpret the code properly. The check-digit is a number between zero and nine (0-9) and it is calculated according to the other digits in the code. The calculation algorithm requires that every digit in the code is enumerated from left to right as shown in the following picture (source: [GS1](https://www.gs1.org/how-calculate-check-digit-manually)).
 
 ![](./img/Digits%20position%20and%20number%20-%20from%20GS1.png)
 
