@@ -37,7 +37,7 @@ begin
         if (length(LIncompleteBarcode) < 12)
             then FViewCheckDigitCalculator.DisplayMessage('Il codice a barre deve essere di tipo EAN13 senza check digit (12 cifre)')
         else begin
-            FModel:=TModelCheckDigitCalculator.Create;
+            FModel:=TModelCheckDigitCalculator.Create(self);
             LCheckDigit:=FModel.GetCheckDigit(LIncompleteBarcode);
             FViewCheckDigitCalculator.SetCheckDigit(LCheckDigit);
             LCompleteBarcode:=LIncompleteBarcode+intToStr(LCheckDigit);

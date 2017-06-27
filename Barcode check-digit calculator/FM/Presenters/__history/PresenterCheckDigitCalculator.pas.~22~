@@ -28,17 +28,21 @@ end;
 
 
 procedure TPresenterCheckDigitCalculator.ShowCheckDigit;
-var LIncompleteBarcode: int64;
+var LIncompleteBarcode: string;
 LCheckDigit: integer;
 LCompleteBarcode: string;
 begin
     LIncompleteBarcode:=FViewCheckDigitCalculator.GetIncompleteBarcode;
-    if not (LIncompleteBarcode = 0) then begin
-        FModel:=TModelCheckDigitCalculator.Create(LIncompleteBarcode);
-        LCheckDigit:=FModel.GetCheckDigit;
-        FViewCheckDigitCalculator.SetCheckDigit(LCheckDigit);
-        LCompleteBarcode:=intToStr(LIncompleteBarcode)+intToStr(LCheckDigit);
-        FViewCheckDigitCalculator.SetCompleteBarcode(strToInt64(LCompleteBarcode));
+    if (LIncompleteBarcode <> '') then begin
+        if (length(LIncompleteBarcode) < 12)
+            then FViewCheckDigitCalculator.DisplayMessage('Il codice a barre deve essere di tipo EAN13 senza check digit (12 cifre)')
+        else begin
+            FModel:=TModelCheckDigitCalculator.Create(nil);
+            LCheckDigit:=FModel.GetCheckDigit(LIncompleteBarcode);
+            FViewCheckDigitCalculator.SetCheckDigit(LCheckDigit);
+            LCompleteBarcode:=LIncompleteBarcode+intToStr(LCheckDigit);
+            FViewCheckDigitCalculator.SetCompleteBarcode(strToInt64(LCompleteBarcode));
+        end;
     end;
 end;
 

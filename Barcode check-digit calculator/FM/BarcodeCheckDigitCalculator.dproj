@@ -88,11 +88,6 @@
         </DCCReference>
         <DCCReference Include="Services\InterfaceCheckDigitCalculator.pas"/>
         <DCCReference Include="Presenters\PresenterCheckDigitCalculator.pas"/>
-        <DCCReference Include="Services\DataModuleCheckDigitCalculator.pas">
-            <Form>DataModuleCheckDigit</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="Models\ModelCheckDigitCalculator.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

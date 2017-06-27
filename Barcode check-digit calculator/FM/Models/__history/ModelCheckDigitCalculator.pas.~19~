@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
 
 type
-    TModelCheckDigitCalculator = class
+    TModelCheckDigitCalculator = class(TDataModule)
       private
           ConnectionCD: TADOConnection;
           QueryFunctionCheckDigit: TADOQuery;
@@ -15,7 +15,7 @@ type
       public
           function GetCheckDigit(AIncompleteBarcode: string): integer;
       published
-          constructor Create;
+          constructor Create(AOwner: TComponent);
 end;
 
 implementation
@@ -38,8 +38,10 @@ end;
 
 
 
+
 procedure TModelCheckDigitCalculator.SetSQL(AIncompleteBarcode: string);
 begin
+    //Parameters = <>
     QueryFunctionCheckDigit.SQL.Clear;
     QueryFunctionCheckDigit.SQL.Add('SELECT dbo.FM_CalculateCheckDigit('+AIncompleteBarcode+');');
     QueryFunctionCheckDigit.Open;
@@ -48,15 +50,11 @@ end;
 
 
 
-
-constructor TModelCheckDigitCalculator.Create;
+constructor TModelCheckDigitCalculator.Create(AOwner: TComponent);
 begin
-    inherited Create;
-    ConnectionCD:=TADOConnection.Create(nil);
-    QueryFunctionCheckDigit:=TADOQuery.Create(nil);
+    inherited Create(AOwner);
     ConnectToAdventureWorks;
 end;
-
 
 
 

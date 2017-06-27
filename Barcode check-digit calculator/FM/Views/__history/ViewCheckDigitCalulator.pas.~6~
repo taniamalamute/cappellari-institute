@@ -25,13 +25,10 @@ type
     function GetIncompleteBarcode: string;
     procedure SetCheckDigit(ACheckDigit: integer);
     procedure SetCompleteBarcode(ABarcode: int64);
-    procedure DisplayMessage(AMessage: string);
   end;
 
 var
   Form1: TForm1;
-const
-  APP_TITLE: string = 'Calcolatore del codice di controllo';
 
 implementation
 
@@ -42,14 +39,6 @@ implementation
 procedure TForm1.btnCalulateClick(Sender: TObject);
 begin
     FPresenter.ShowCheckDigit;
-end;
-
-
-
-
-procedure TForm1.DisplayMessage(AMessage: string);
-begin
-    Application.MessageBox(PChar(AMessage), PChar(APP_TITLE), MB_OK);
 end;
 
 

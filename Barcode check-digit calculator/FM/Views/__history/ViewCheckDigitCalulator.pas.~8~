@@ -49,7 +49,7 @@ end;
 
 procedure TForm1.DisplayMessage(AMessage: string);
 begin
-    Application.MessageBox(PChar(AMessage), PChar(APP_TITLE), MB_OK);
+    Application.MessageBox(PChar(AMessage), APP_TITLE, MB_OK);
 end;
 
 

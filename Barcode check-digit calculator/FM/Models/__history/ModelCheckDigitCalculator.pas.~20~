@@ -38,8 +38,10 @@ end;
 
 
 
+
 procedure TModelCheckDigitCalculator.SetSQL(AIncompleteBarcode: string);
 begin
+    //Parameters = <>
     QueryFunctionCheckDigit.SQL.Clear;
     QueryFunctionCheckDigit.SQL.Add('SELECT dbo.FM_CalculateCheckDigit('+AIncompleteBarcode+');');
     QueryFunctionCheckDigit.Open;
@@ -48,15 +50,11 @@ end;
 
 
 
-
 constructor TModelCheckDigitCalculator.Create;
 begin
     inherited Create;
-    ConnectionCD:=TADOConnection.Create(nil);
-    QueryFunctionCheckDigit:=TADOQuery.Create(nil);
     ConnectToAdventureWorks;
 end;
-
 
 
 

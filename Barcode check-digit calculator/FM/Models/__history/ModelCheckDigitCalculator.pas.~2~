@@ -1,9 +1,0 @@
-unit ModelCheckDigitCalculator;
-
-interface
-
-uses DataModuleCheckDigitCalculator;
-
-implementation
-
-end.

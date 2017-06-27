@@ -30,8 +30,6 @@ type
 
 var
   Form1: TForm1;
-const
-  APP_TITLE: string = 'Calcolatore del codice di controllo';
 
 implementation
 
@@ -49,7 +47,7 @@ end;
 
 procedure TForm1.DisplayMessage(AMessage: string);
 begin
-    Application.MessageBox(PChar(AMessage), PChar(APP_TITLE), MB_OK);
+    showMessage(AMessage);
 end;
 
 
