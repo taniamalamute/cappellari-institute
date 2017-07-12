@@ -3,13 +3,13 @@
         <ProjectGuid>{2120BD7E-7418-4BAD-9AD5-9DB935B7CB5D}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="GG\FreeSeats.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="PE\freeseatsproject.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="SM\RoomSeatsProject.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FM\FreeSeats.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -20,15 +20,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="FreeSeats">
-        <MSBuild Projects="GG\FreeSeats.dproj"/>
-    </Target>
-    <Target Name="FreeSeats:Clean">
-        <MSBuild Projects="GG\FreeSeats.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="FreeSeats:Make">
-        <MSBuild Projects="GG\FreeSeats.dproj" Targets="Make"/>
-    </Target>
     <Target Name="freeseatsproject">
         <MSBuild Projects="PE\freeseatsproject.dproj"/>
     </Target>
@@ -47,14 +38,23 @@
     <Target Name="RoomSeatsProject:Make">
         <MSBuild Projects="SM\RoomSeatsProject.dproj" Targets="Make"/>
     </Target>
+    <Target Name="FreeSeats">
+        <MSBuild Projects="FM\FreeSeats.dproj"/>
+    </Target>
+    <Target Name="FreeSeats:Clean">
+        <MSBuild Projects="FM\FreeSeats.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FreeSeats:Make">
+        <MSBuild Projects="FM\FreeSeats.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="FreeSeats;freeseatsproject;RoomSeatsProject"/>
+        <CallTarget Targets="freeseatsproject;RoomSeatsProject;FreeSeats"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="FreeSeats:Clean;freeseatsproject:Clean;RoomSeatsProject:Clean"/>
+        <CallTarget Targets="freeseatsproject:Clean;RoomSeatsProject:Clean;FreeSeats:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="FreeSeats:Make;freeseatsproject:Make;RoomSeatsProject:Make"/>
+        <CallTarget Targets="freeseatsproject:Make;RoomSeatsProject:Make;FreeSeats:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
