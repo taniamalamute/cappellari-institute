@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/07/04 11:56:06.000.206,=C:\Users\Marina\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/07/04 12:34:41.000.887,C:\Users\Marina\Documents\RAD Studio\Projects\CheckDView.dfm=C:\Users\Marina\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2017/07/04 12:34:41.000.887,C:\Users\Marina\Documents\RAD Studio\Projects\CheckDView.pas=C:\Users\Marina\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/07/04 12:35:00.000.754,C:\Users\Marina\Documents\RAD Studio\Projects\CheckDigitbarCode.dproj=C:\Users\Marina\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2017/07/04 18:48:50.000.080,=C:\Users\Marina\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/07/04 19:00:24.000.843,C:\Users\Marina\Documents\RAD Studio\Projects\checkdata.dfm=C:\Users\Marina\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2017/07/04 19:00:24.000.843,C:\Users\Marina\Documents\RAD Studio\Projects\checkdata.pas=C:\Users\Marina\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
