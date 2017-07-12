@@ -9,6 +9,12 @@
         <Projects Include="PE\BarcodesCheck.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="SM\CheckDigitProject.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FM\BarcodeCheckDigitCalculator.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +41,32 @@
     <Target Name="BarcodesCheck:Make">
         <MSBuild Projects="PE\BarcodesCheck.dproj" Targets="Make"/>
     </Target>
+    <Target Name="CheckDigitProject">
+        <MSBuild Projects="SM\CheckDigitProject.dproj"/>
+    </Target>
+    <Target Name="CheckDigitProject:Clean">
+        <MSBuild Projects="SM\CheckDigitProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CheckDigitProject:Make">
+        <MSBuild Projects="SM\CheckDigitProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BarcodeCheckDigitCalculator">
+        <MSBuild Projects="FM\BarcodeCheckDigitCalculator.dproj"/>
+    </Target>
+    <Target Name="BarcodeCheckDigitCalculator:Clean">
+        <MSBuild Projects="FM\BarcodeCheckDigitCalculator.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BarcodeCheckDigitCalculator:Make">
+        <MSBuild Projects="FM\BarcodeCheckDigitCalculator.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="CheckDigitCalculator;BarcodesCheck"/>
+        <CallTarget Targets="CheckDigitCalculator;BarcodesCheck;CheckDigitProject;BarcodeCheckDigitCalculator"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CheckDigitCalculator:Clean;BarcodesCheck:Clean"/>
+        <CallTarget Targets="CheckDigitCalculator:Clean;BarcodesCheck:Clean;CheckDigitProject:Clean;BarcodeCheckDigitCalculator:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CheckDigitCalculator:Make;BarcodesCheck:Make"/>
+        <CallTarget Targets="CheckDigitCalculator:Make;BarcodesCheck:Make;CheckDigitProject:Make;BarcodeCheckDigitCalculator:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
