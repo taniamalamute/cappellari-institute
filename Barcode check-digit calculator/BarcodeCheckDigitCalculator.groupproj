@@ -9,10 +9,13 @@
         <Projects Include="PE\BarcodesCheck.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="FM\BarcodeCheckDigitCalculator.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="SM\CheckDigitProject.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FM\BarcodeCheckDigitCalculator.dproj">
+        <Projects Include="SM\CheckDigitbarCode.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -41,15 +44,6 @@
     <Target Name="BarcodesCheck:Make">
         <MSBuild Projects="PE\BarcodesCheck.dproj" Targets="Make"/>
     </Target>
-    <Target Name="CheckDigitProject">
-        <MSBuild Projects="SM\CheckDigitProject.dproj"/>
-    </Target>
-    <Target Name="CheckDigitProject:Clean">
-        <MSBuild Projects="SM\CheckDigitProject.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="CheckDigitProject:Make">
-        <MSBuild Projects="SM\CheckDigitProject.dproj" Targets="Make"/>
-    </Target>
     <Target Name="BarcodeCheckDigitCalculator">
         <MSBuild Projects="FM\BarcodeCheckDigitCalculator.dproj"/>
     </Target>
@@ -59,14 +53,32 @@
     <Target Name="BarcodeCheckDigitCalculator:Make">
         <MSBuild Projects="FM\BarcodeCheckDigitCalculator.dproj" Targets="Make"/>
     </Target>
+    <Target Name="CheckDigitProject">
+        <MSBuild Projects="SM\CheckDigitProject.dproj"/>
+    </Target>
+    <Target Name="CheckDigitProject:Clean">
+        <MSBuild Projects="SM\CheckDigitProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CheckDigitProject:Make">
+        <MSBuild Projects="SM\CheckDigitProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CheckDigitbarCode">
+        <MSBuild Projects="SM\CheckDigitbarCode.dproj"/>
+    </Target>
+    <Target Name="CheckDigitbarCode:Clean">
+        <MSBuild Projects="SM\CheckDigitbarCode.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CheckDigitbarCode:Make">
+        <MSBuild Projects="SM\CheckDigitbarCode.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="CheckDigitCalculator;BarcodesCheck;CheckDigitProject;BarcodeCheckDigitCalculator"/>
+        <CallTarget Targets="CheckDigitCalculator;BarcodesCheck;BarcodeCheckDigitCalculator;CheckDigitProject;CheckDigitbarCode"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CheckDigitCalculator:Clean;BarcodesCheck:Clean;CheckDigitProject:Clean;BarcodeCheckDigitCalculator:Clean"/>
+        <CallTarget Targets="CheckDigitCalculator:Clean;BarcodesCheck:Clean;BarcodeCheckDigitCalculator:Clean;CheckDigitProject:Clean;CheckDigitbarCode:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CheckDigitCalculator:Make;BarcodesCheck:Make;CheckDigitProject:Make;BarcodeCheckDigitCalculator:Make"/>
+        <CallTarget Targets="CheckDigitCalculator:Make;BarcodesCheck:Make;BarcodeCheckDigitCalculator:Make;CheckDigitProject:Make;CheckDigitbarCode:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
