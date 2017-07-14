@@ -10,7 +10,7 @@ object DataModule1: TDataModule1
       'ventureWorks;Data Source=corso-cappellari.database.windows.net'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 32
+    Left = 48
     Top = 48
   end
   object ADOQuery1: TADOQuery
