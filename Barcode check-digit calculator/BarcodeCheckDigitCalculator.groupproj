@@ -18,6 +18,9 @@
         <Projects Include="SM\CheckDigitbarCode.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="RR\CheckDigit.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -71,14 +74,23 @@
     <Target Name="CheckDigitbarCode:Make">
         <MSBuild Projects="SM\CheckDigitbarCode.dproj" Targets="Make"/>
     </Target>
+    <Target Name="CheckDigit">
+        <MSBuild Projects="RR\CheckDigit.dproj"/>
+    </Target>
+    <Target Name="CheckDigit:Clean">
+        <MSBuild Projects="RR\CheckDigit.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CheckDigit:Make">
+        <MSBuild Projects="RR\CheckDigit.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="CheckDigitCalculator;BarcodesCheck;BarcodeCheckDigitCalculator;CheckDigitProject;CheckDigitbarCode"/>
+        <CallTarget Targets="CheckDigitCalculator;BarcodesCheck;BarcodeCheckDigitCalculator;CheckDigitProject;CheckDigitbarCode;CheckDigit"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CheckDigitCalculator:Clean;BarcodesCheck:Clean;BarcodeCheckDigitCalculator:Clean;CheckDigitProject:Clean;CheckDigitbarCode:Clean"/>
+        <CallTarget Targets="CheckDigitCalculator:Clean;BarcodesCheck:Clean;BarcodeCheckDigitCalculator:Clean;CheckDigitProject:Clean;CheckDigitbarCode:Clean;CheckDigit:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CheckDigitCalculator:Make;BarcodesCheck:Make;BarcodeCheckDigitCalculator:Make;CheckDigitProject:Make;CheckDigitbarCode:Make"/>
+        <CallTarget Targets="CheckDigitCalculator:Make;BarcodesCheck:Make;BarcodeCheckDigitCalculator:Make;CheckDigitProject:Make;CheckDigitbarCode:Make;CheckDigit:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
