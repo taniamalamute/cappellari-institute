@@ -7,27 +7,36 @@ uses DataModuleCheck, ICheck, SysUtils;
 type
   TModelCheck = class
   protected
-    FDataModule : TDataModule1;
+    FDataModule: TDataModule1;
   public
     constructor Create;
+    destructor Destroy; override;
     function CheckDigit(ACode : string; ALength : integer): Integer;
   end;
 
 implementation
 
-
-
 constructor TModelCheck.Create;
 begin
+  inherited;
   FDataModule := TDataModule1.Create(nil);
+end;
+
+destructor TModelCheck.Destroy;
+begin
+  FDataModule.Free;
   inherited;
 end;
 
 function TModelCheck.CheckDigit(ACode: string; ALength : integer): Integer;
-var digit : String;
+//var
+//  digit: String;
 begin
   DataModuleCheck.DataModule1.ADOQuery1.Close;
-  DataModuleCheck.DataModule1.ADOQuery1.ClearFields;
+
+  // SG 20/08/2017: Il dataset non è in edit oppure in insert
+  //DataModuleCheck.DataModule1.ADOQuery1.ClearFields;
+
   DataModuleCheck.DataModule1.ADOQuery1.SQL.Text := ' declare @length int = '+ IntToStr(ALength) +' ;'+#13#10+
   'declare @code varchar(20);' +#13#10+
   'Set @code = '+ ACode+ ' ;' +#13#10+
@@ -44,10 +53,14 @@ begin
 	'	Set @total = @total + @char;'+#13#10+
 	'end;'+#13#10+
 	'Set @int = @int + 1;'+#13#10+
-  'end;';
+  // SG 20/08/2017: Manca la restituzione del databaset.. Ho aggiunto la SELECT
+  // della variabile @total
+  'end; SELECT @total AS CheckDigit;';
   DataModuleCheck.DataModule1.ADOQuery1.Open;
-  digit := DataModuleCheck.DataModule1.ADOQuery1.Parameters.ToString;
-  Result := StrToInt(digit);
+
+  //digit := DataModuleCheck.DataModule1.ADOQuery1.Parameters.ToString;
+  //Result := StrToInt(digit);
+  Result := DataModuleCheck.DataModule1.ADOQuery1.FieldByName('CheckDigit').AsInteger;
 end;
 
 end.

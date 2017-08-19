@@ -6,12 +6,13 @@ uses
   System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB, ICheck;
 
 type
+
   TDataModule1 = class(TDataModule)
     ADOConnection1: TADOConnection;
     ADOQuery1: TADOQuery;
     DataSource1: TDataSource;
   protected
-    VDataMod : ICheckView;
+    VDataMod: ICheckView;
   public
   end;
 
@@ -23,6 +24,5 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
-
 
 end.

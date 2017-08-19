@@ -3,18 +3,18 @@ unit ICheck;
 interface
 
 type
-ICheckView = interface
-  ['{DD4052A3-720B-41B3-9866-45FCDCD79FBE}']
 
-//input
-function GetLength: Integer;
-function GetCode: String;
+  ICheckView = interface
+    ['{DD4052A3-720B-41B3-9866-45FCDCD79FBE}']
 
-//output
-procedure SetLength(AValue : Integer);
-procedure SetResult(ACode, ADigit : String);
+    // input
+    function GetLength: Integer;
+    function GetCode: String;
 
-end;
+    // output
+    procedure SetLength(AValue: Integer);
+    procedure SetResult(const ACode, ADigit: String);
+  end;
 
 implementation
 

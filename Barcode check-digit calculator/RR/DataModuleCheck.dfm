@@ -3,6 +3,7 @@ object DataModule1: TDataModule1
   Height = 220
   Width = 353
   object ADOConnection1: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Password=94483ycWSmrC22893etWS995!5k88X;Pers' +
       'ist Security Info=True;User ID=CorsoDelphiSQL;Initial Catalog=Fr' +
@@ -12,6 +13,7 @@ object DataModule1: TDataModule1
     Top = 24
   end
   object ADOQuery1: TADOQuery
+    Connection = ADOConnection1
     Parameters = <>
     Left = 152
     Top = 24
