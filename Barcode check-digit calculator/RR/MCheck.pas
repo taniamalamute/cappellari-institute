@@ -2,10 +2,11 @@ unit MCheck;
 
 interface
 
-uses DataModuleCheck, ICheck, SysUtils;
+uses
+  DataModuleCheck, ICheck, SysUtils;
 
 type
-  TModelCheck = class
+  TModelCheck = class(TObject)
   protected
     FDataModule: TDataModule1;
   public
@@ -61,6 +62,8 @@ begin
   //digit := DataModuleCheck.DataModule1.ADOQuery1.Parameters.ToString;
   //Result := StrToInt(digit);
   Result := DataModuleCheck.DataModule1.ADOQuery1.FieldByName('CheckDigit').AsInteger;
+
+  DataModuleCheck.DataModule1.ADOQuery1.Close;
 end;
 
 end.
