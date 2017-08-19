@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/07/18 14:23:25.000.877,=C:\Users\ricca\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/07/24 21:38:46.000.058,=C:\Users\ricca\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/08/10 16:24:46.000.609,=C:\Users\ricca\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/08/10 16:39:08.000.048,C:\Users\ricca\Documents\RAD Studio\Projects\Checksum\VCheck.dfm=C:\Users\ricca\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2017/08/10 16:39:08.000.048,C:\Users\ricca\Documents\RAD Studio\Projects\Checksum\VCheck.pas=C:\Users\ricca\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/08/10 16:39:24.000.790,C:\Users\ricca\Documents\RAD Studio\Projects\Checksum\CheckDigit.dproj=C:\Users\ricca\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2017/08/16 16:34:53.685,=C:\Users\ricca\Documents\RAD Studio\Projects\Checksum\Unit1.pas</Transaction>
+    <Transaction>2017/08/16 18:00:48.982,C:\Users\ricca\Documents\RAD Studio\Projects\Checksum\ICheck.pas=C:\Users\ricca\Documents\RAD Studio\Projects\Checksum\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
