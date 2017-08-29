@@ -11,6 +11,8 @@ object FreeSeats: TFreeSeats
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -29,11 +31,11 @@ object FreeSeats: TFreeSeats
     TabOrder = 0
     OnClick = Button1Click
   end
-  object DBMemo1: TDBMemo
-    Left = 120
+  object Memo1: TMemo
+    Left = 112
     Top = 42
-    Width = 185
-    Height = 151
+    Width = 201
+    Height = 164
     TabOrder = 1
   end
 end

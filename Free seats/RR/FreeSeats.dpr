@@ -6,8 +6,7 @@ uses
   DataModule in 'DataModule.pas' {DataSeats: TDataModule},
   ISeats in 'ISeats.pas',
   PSeats in 'PSeats.pas',
-  MSeats in 'MSeats.pas',
-  IDataSeats in 'IDataSeats.pas';
+  MSeats in 'MSeats.pas';
 
 {$R *.res}
 
@@ -15,6 +14,6 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFreeSeats, FFreeSeats);
-  //  Application.CreateForm(TDataSeats, DataSeats);
+  Application.CreateForm(TDataSeats, DataSeats);
   Application.Run;
 end.

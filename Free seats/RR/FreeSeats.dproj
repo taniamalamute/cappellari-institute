@@ -94,7 +94,6 @@
         <DCCReference Include="ISeats.pas"/>
         <DCCReference Include="PSeats.pas"/>
         <DCCReference Include="MSeats.pas"/>
-        <DCCReference Include="IDataSeats.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

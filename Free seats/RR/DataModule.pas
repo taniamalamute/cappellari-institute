@@ -3,17 +3,15 @@ unit DataModule;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB, ISeats;
 
 type
   TDataSeats = class(TDataModule)
     ADOConnection1: TADOConnection;
-    DataSource1: TDataSource;
     ADOQuery1: TADOQuery;
   private
-    { Private declarations }
+    VData : IFreeSeats;
   public
-    { Public declarations }
   end;
 
 var

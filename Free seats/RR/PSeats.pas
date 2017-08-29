@@ -3,7 +3,7 @@ unit PSeats;
 interface
 
 uses
-System.SysUtils, ISeats, MSeats, IDataSeats;
+System.SysUtils, ISeats, MSeats, Classes;
 
 type
 
@@ -11,10 +11,11 @@ TSeatsPresenter = class
 
 protected
   FFreeSeats : IFreeSeats;
-  FData : IData;
+  FFData : TData;
 public
   constructor Create(AFreeSeats: IFreeSeats);
-  function SetResult():String;
+  function SetResult():TStringList;
+  destructor Destroy; override;
 
 end;
 
@@ -23,11 +24,19 @@ implementation
 constructor TSeatsPresenter.Create(AFreeSeats: IFreeSeats);
 begin
   FFreeSeats := AFreeSeats;
+  FFData := TData.Create;
 end;
 
-function TSeatsPresenter.SetResult():String;
+function TSeatsPresenter.SetResult():TStringList;
 begin
-  Result := FData.GetFreeSeats();
+  FFData.Connection;
+  Result := FFData.GetFreeSeats();
+end;
+
+destructor TSeatsPresenter.Destroy;
+begin
+  FFData.Free;
+  inherited;
 end;
 
 end.
