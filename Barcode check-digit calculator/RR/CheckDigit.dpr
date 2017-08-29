@@ -4,9 +4,9 @@ uses
   Vcl.Forms,
   VCheck in 'VCheck.pas' {Form1},
   ICheck in 'ICheck.pas',
-  PCheck in 'PCheck.pas',
+  DataModuleCheck in 'DataModuleCheck.pas' {DataModule1: TDataModule},
   MCheck in 'MCheck.pas',
-  DataModuleCheck in 'DataModuleCheck.pas' {DataModule1: TDataModule};
+  PCheck in 'PCheck.pas';
 
 {$R *.res}
 

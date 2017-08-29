@@ -2,25 +2,32 @@ unit MCheck;
 
 interface
 
-uses
-  DataModuleCheck, ICheck, SysUtils;
+uses DataModuleCheck, ICheck, SysUtils;
 
 type
-  TModelCheck = class(TObject)
+  TModelCheck = class
   protected
     FDataModule: TDataModule1;
   public
     constructor Create;
-    destructor Destroy; override;
+    procedure Connection;
     function CheckDigit(ACode : string; ALength : integer): Integer;
+    destructor Destroy; override;
   end;
 
 implementation
 
+procedure TModelCheck.Connection;
+begin
+  DataModule1.ADOConnection1.LoginPrompt := false;
+  DataModule1.ADOConnection1.ConnectionString := 'Provider=****;Password=******;Persist Security Info=True;User ID=*****;Initial Catalog=*******;Data Source=********;';
+  DataModule1.ADOConnection1.Connected := true;
+end;
+
 constructor TModelCheck.Create;
 begin
   inherited;
-  FDataModule := TDataModule1.Create(nil);
+  FDataModule := TDataModule1(nil);
 end;
 
 destructor TModelCheck.Destroy;
@@ -30,15 +37,9 @@ begin
 end;
 
 function TModelCheck.CheckDigit(ACode: string; ALength : integer): Integer;
-//var
-//  digit: String;
 begin
-  DataModuleCheck.DataModule1.ADOQuery1.Close;
-
-  // SG 20/08/2017: Il dataset non è in edit oppure in insert
-  //DataModuleCheck.DataModule1.ADOQuery1.ClearFields;
-
-  DataModuleCheck.DataModule1.ADOQuery1.SQL.Text := ' declare @length int = '+ IntToStr(ALength) +' ;'+#13#10+
+  DataModule1.ADOQuery1.Close;
+  DataModule1.ADOQuery1.SQL.Text := ' declare @length int = '+ IntToStr(ALength) +' ;'+#13#10+
   'declare @code varchar(20);' +#13#10+
   'Set @code = '+ ACode+ ' ;' +#13#10+
   'declare @int int = 0; declare @total int = 0; declare @char int = 0; ' +#13#10+
@@ -54,16 +55,18 @@ begin
 	'	Set @total = @total + @char;'+#13#10+
 	'end;'+#13#10+
 	'Set @int = @int + 1;'+#13#10+
-  // SG 20/08/2017: Manca la restituzione del databaset.. Ho aggiunto la SELECT
-  // della variabile @total
-  'end; SELECT @total AS CheckDigit;';
-  DataModuleCheck.DataModule1.ADOQuery1.Open;
-
-  //digit := DataModuleCheck.DataModule1.ADOQuery1.Parameters.ToString;
-  //Result := StrToInt(digit);
-  Result := DataModuleCheck.DataModule1.ADOQuery1.FieldByName('CheckDigit').AsInteger;
-
-  DataModuleCheck.DataModule1.ADOQuery1.Close;
+  'end; '+#13#10+
+  'if ( SELECT CAST( SUBSTRING( CAST( @total as varchar ),len( @total ),1 ) as int ) ) <> 0 '+#13#10+
+  'begin'+#13#10+
+  '	set @total = ( @total - ( SELECT CAST( SUBSTRING( CAST( @total as varchar ),len( @total ),1 ) as int ) ) + 10) - @total;'+#13#10+
+  'end'+#13#10+
+  'else'+#13#10+
+  'begin'+#13#10+
+  '	set @total = 0;'+#13#10+
+  'end;'+#13#10+
+  'SELECT @total AS CheckDigit;';
+  DataModule1.ADOQuery1.Open;
+  Result := DataModule1.ADOQuery1.FieldByName('CheckDigit').AsInteger;
 end;
 
 end.

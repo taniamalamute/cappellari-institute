@@ -3,9 +3,8 @@ unit VCheck;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.StdCtrls, ICheck, PCheck, MCheck;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, ICheck, PCheck;
 
 type
   TForm1 = class(TForm, ICheckView)
@@ -23,15 +22,16 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
-    FCheckPresenter: TCheckPresenter;
+    FCheckPresenter : TCheckPresenter;
   public
-    // input
+    //input
     function GetLength: Integer;
     function GetCode: string;
 
-    // output
-    procedure SetLength(AValue: Integer);
-    procedure SetResult(const ACode, ADigit: string);
+    //output
+    procedure SetLength(AValue : Integer);
+    procedure SetResult(const ACode, ADigit : string);
+
   end;
 
 var
@@ -43,10 +43,11 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 var
-  i: Integer;
+  i : integer;
 begin
   i := FCheckPresenter.InvertCode(GetCode, GetLength);
   Edit2.Text := IntToStr(i);
+  SetResult(GetCode, IntToStr(i));
 end;
 
 function TForm1.GetCode;
@@ -70,12 +71,12 @@ begin
   Edit1.MaxLength := AValue;
 end;
 
-procedure TForm1.SetResult(const ACode, ADigit: string);
+procedure TForm1.SetResult(const ACode, ADigit : string);
 begin
   Edit3.Text := ACode + '' + ADigit;
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TForm1.FormCreate(Sender : TObject);
 begin
   FCheckPresenter := TCheckPresenter.Create(Self);
 end;
