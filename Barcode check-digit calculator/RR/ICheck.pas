@@ -9,6 +9,7 @@ ICheckView = interface
 //input
 function GetLength: Integer;
 function GetCode: String;
+function GetCountChar(AText : String; ALength: Integer): Boolean;
 
 //output
 procedure SetLength(AValue : Integer);
