@@ -19,9 +19,12 @@ implementation
 
 procedure TModelCheck.Connection;
 begin
-  DataModule1.ADOConnection1.LoginPrompt := false;
-  DataModule1.ADOConnection1.ConnectionString := 'Provider=****;Password=******;Persist Security Info=True;User ID=*****;Initial Catalog=*******;Data Source=********;';
-  DataModule1.ADOConnection1.Connected := true;
+  if DataModule1.ADOConnection1.Connected = false then
+  begin
+    DataModule1.ADOConnection1.LoginPrompt := false;
+    DataModule1.ADOConnection1.ConnectionString := 'Provider=****;Password=******;Persist Security Info=True;User ID=*****;Initial Catalog=*******;Data Source=********;';
+    DataModule1.ADOConnection1.Connected := true;
+  end;
 end;
 
 constructor TModelCheck.Create;
@@ -41,8 +44,8 @@ begin
   DataModule1.ADOQuery1.Close;
   DataModule1.ADOQuery1.SQL.Text := ' declare @length int = '+ IntToStr(ALength) +' ;'+#13#10+
   'declare @code varchar(20);' +#13#10+
-  'Set @code = '+ ACode+ ' ;' +#13#10+
-  'declare @int int = 0; declare @total int = 0; declare @char int = 0; ' +#13#10+
+  'Set @code = '''+ ACode+ ''' ;' +#13#10+
+  'declare @int int = 0; declare @total int = 0; declare @char int = 1; ' +#13#10+
   'while @int <= @length '+#13#10+
   'begin'+#13#10+
   'set @char = ( SELECT CAST(SUBSTRING(@code,@int,1)as int) )'+#13#10+
