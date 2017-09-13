@@ -14,7 +14,8 @@ type
   public
       constructor Create(ACheckView: ICheckView);
       destructor Destroy; override;
-  		function InvertCode(const ACode: string;  ALength: Integer): Integer;
+  		function InvertCode(const ACode: string;  ALength: Integer): String;
+      function GetCountChar(AText : String;ALength: Integer):boolean;
   end;
 
 implementation
@@ -25,13 +26,25 @@ begin
   FCheckDB := TModelCheck.Create;
 end;
 
-function TCheckPresenter.InvertCode(const ACode : String; ALength : Integer): integer;
+function TCheckPresenter.GetCountChar(AText : String;ALength: Integer):boolean;
+begin
+  if Length(AText) < ALength then
+  begin
+    Result := false;
+  end
+  else
+  begin
+    Result := true;
+  end;
+end;
+
+function TCheckPresenter.InvertCode(const ACode : String; ALength : Integer): String;
 var
-s : string;
+LCode : string;
 begin
   FCheckDB.Connection;
-  s := AnsiReverseString(ACode);
-  Result := FCheckDB.CheckDigit(s, ALength);
+  LCode := AnsiReverseString(ACode);
+  Result := FCheckDB.CheckDigit(LCode, ALength);
 end;
 
 destructor TCheckPresenter.Destroy;

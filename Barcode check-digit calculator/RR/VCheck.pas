@@ -28,7 +28,6 @@ type
     //input
     function GetLength: Integer;
     function GetCode: string;
-    function GetCountChar(AText : String;ALength: Integer): Boolean;
 
     //output
     procedure SetLength(AValue : Integer);
@@ -45,16 +44,16 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 var
-  i : integer;
+  LDigit : String;
 begin
-  i := FCheckPresenter.InvertCode(GetCode, GetLength);
-  Edit2.Text := IntToStr(i);
-  SetResult(GetCode, IntToStr(i));
+  LDigit := FCheckPresenter.InvertCode(GetCode, GetLength);
+  Edit2.Text := LDigit;
+  SetResult(GetCode, LDigit);
 end;
 
 function TForm1.GetCode;
 begin
-  result := Edit1.Text;
+  Result := Edit1.Text;
 end;
 
 procedure TForm1.ComboBox1Change(Sender: TObject);
@@ -65,12 +64,12 @@ end;
 
 procedure TForm1.Edit1Change(Sender: TObject);
 begin
-  Button1.Enabled := GetCountChar(Edit1.Text, GetLength-1);
+  Button1.Enabled := FCheckPresenter.GetCountChar(Edit1.Text, GetLength-1);
 end;
 
 function TForm1.GetLength;
 begin
-  result := StrToInt(ComboBox1.Text);
+  Result := StrToInt(ComboBox1.Text);
 end;
 
 procedure TForm1.SetLength(AValue: Integer);
@@ -91,18 +90,6 @@ end;
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
   FCheckPresenter.Free;
-end;
-
-function TForm1.GetCountChar(AText : String;ALength: Integer):boolean;
-begin
-  if Length(AText) < ALength then
-  begin
-    result := false;
-  end
-  else
-  begin
-    result := true;
-  end;
 end;
 
 end.

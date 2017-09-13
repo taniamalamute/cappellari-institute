@@ -11,7 +11,7 @@ type
   public
     constructor Create;
     procedure Connection;
-    function CheckDigit(ACode : string; ALength : integer): Integer;
+    function CheckDigit(ACode : string; ALength : integer): String;
     destructor Destroy; override;
   end;
 
@@ -39,7 +39,7 @@ begin
   inherited;
 end;
 
-function TModelCheck.CheckDigit(ACode: string; ALength : integer): Integer;
+function TModelCheck.CheckDigit(ACode: string; ALength : integer): String;
 begin
   DataModule1.ADOQuery1.Close;
   DataModule1.ADOQuery1.SQL.Text := ' declare @length int = '+ IntToStr(ALength) +' ;'+#13#10+
@@ -69,7 +69,7 @@ begin
   'end;'+#13#10+
   'SELECT @total AS CheckDigit;';
   DataModule1.ADOQuery1.Open;
-  Result := DataModule1.ADOQuery1.FieldByName('CheckDigit').AsInteger;
+  Result := DataModule1.ADOQuery1.FieldByName('CheckDigit').AsString;
 end;
 
 end.
