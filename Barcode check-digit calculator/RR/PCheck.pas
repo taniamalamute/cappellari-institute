@@ -6,18 +6,16 @@ uses
   ICheck, StrUtils, SysUtils, MCheck;
 
 type
-  TCheckPresenter = class(TObject)
-    // SG 20/08/2017: Essendo una classe e non una form, meglio utilizzare
-    // il costruttore Create ed il distruttore Destroy
-    //procedure FormCreate(Sender: TObject);
-    //procedure FormDestroy(Sender: TObject);
+  TCheckPresenter = class
+
   protected
     FCheckView: ICheckView;
     FCheckDB: TModelCheck;
   public
-    constructor Create(ACheckView: ICheckView);
-    destructor Destroy; override;
-    function InvertCode(const ACode: string;  ALength: Integer): Integer;
+      constructor Create(ACheckView: ICheckView);
+      destructor Destroy; override;
+  		function InvertCode(const ACode: string;  ALength: Integer): String;
+      function GetCountChar(AText : String;ALength: Integer):boolean;
   end;
 
 implementation
@@ -28,12 +26,25 @@ begin
   FCheckDB := TModelCheck.Create;
 end;
 
-function TCheckPresenter.InvertCode(const ACode: string; ALength: Integer): integer;
-var
-s : string;
+function TCheckPresenter.GetCountChar(AText : String;ALength: Integer):boolean;
 begin
-  s := AnsiReverseString(ACode);
-  Result := FCheckDB.CheckDigit(s, ALength);
+  if Length(AText) < ALength then
+  begin
+    Result := false;
+  end
+  else
+  begin
+    Result := true;
+  end;
+end;
+
+function TCheckPresenter.InvertCode(const ACode : String; ALength : Integer): String;
+var
+LCode : string;
+begin
+  FCheckDB.Connection;
+  LCode := AnsiReverseString(ACode);
+  Result := FCheckDB.CheckDigit(LCode, ALength);
 end;
 
 destructor TCheckPresenter.Destroy;
@@ -41,15 +52,5 @@ begin
   FCheckDB.Free;
   inherited;
 end;
-
-//procedure TCheckPresenter.FormCreate(Sender: TObject);
-//begin
-//  FCheckDB := TModelCheck(Self);
-//end;
-
-//procedure TCheckPresenter.FormDestroy(Sender: TObject);
-//begin
-//  FCheckDB.Free;
-//end;
 
 end.

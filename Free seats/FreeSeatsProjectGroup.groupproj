@@ -9,7 +9,7 @@
         <Projects Include="SM\RoomSeatsProject.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FM\FreeSeats.dproj">
+        <Projects Include="RR\FreeSeats.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -39,13 +39,13 @@
         <MSBuild Projects="SM\RoomSeatsProject.dproj" Targets="Make"/>
     </Target>
     <Target Name="FreeSeats">
-        <MSBuild Projects="FM\FreeSeats.dproj"/>
+        <MSBuild Projects="RR\FreeSeats.dproj"/>
     </Target>
     <Target Name="FreeSeats:Clean">
-        <MSBuild Projects="FM\FreeSeats.dproj" Targets="Clean"/>
+        <MSBuild Projects="RR\FreeSeats.dproj" Targets="Clean"/>
     </Target>
     <Target Name="FreeSeats:Make">
-        <MSBuild Projects="FM\FreeSeats.dproj" Targets="Make"/>
+        <MSBuild Projects="RR\FreeSeats.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="freeseatsproject;RoomSeatsProject;FreeSeats"/>
