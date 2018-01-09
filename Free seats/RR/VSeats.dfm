@@ -1,9 +1,9 @@
-object FreeSeats: TFreeSeats
+object ViewFreeSeats: TViewFreeSeats
   Left = 0
   Top = 0
-  Caption = 'FreeSeats'
-  ClientHeight = 214
-  ClientWidth = 326
+  Caption = 'ViewFreeSeats'
+  ClientHeight = 242
+  ClientWidth = 395
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,18 +22,37 @@ object FreeSeats: TFreeSeats
   end
   object Button1: TButton
     Left = 16
-    Top = 40
-    Width = 81
-    Height = 25
+    Top = 77
+    Width = 161
+    Height = 36
     Caption = 'Check'
     TabOrder = 0
     OnClick = Button1Click
   end
   object DBMemo1: TDBMemo
-    Left = 120
-    Top = 42
-    Width = 185
-    Height = 151
+    Left = 16
+    Top = 130
+    Width = 137
+    Height = 95
     TabOrder = 1
+  end
+  object memFreeSeats: TMemo
+    Left = 183
+    Top = 42
+    Width = 204
+    Height = 192
+    Lines.Strings = (
+      'memFreeSeats')
+    TabOrder = 2
+  end
+  object ledtRequiredSeats: TLabeledEdit
+    Left = 16
+    Top = 50
+    Width = 161
+    Height = 21
+    EditLabel.Width = 73
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Required Seats'
+    TabOrder = 3
   end
 end

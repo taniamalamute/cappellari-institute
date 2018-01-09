@@ -2,7 +2,7 @@ program FreeSeats;
 
 uses
   Vcl.Forms,
-  VSeats in 'VSeats.pas' {FreeSeats},
+  VSeats in 'VSeats.pas' {ViewFreeSeats},
   DataModule in 'DataModule.pas' {DataSeats: TDataModule},
   ISeats in 'ISeats.pas',
   PSeats in 'PSeats.pas',
@@ -14,7 +14,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFreeSeats, FFreeSeats);
-  //  Application.CreateForm(TDataSeats, DataSeats);
+  //Application.CreateForm(TDataSeats, DataSeats);
+  Application.CreateForm(TViewFreeSeats, ViewFreeSeats);
   Application.Run;
 end.
