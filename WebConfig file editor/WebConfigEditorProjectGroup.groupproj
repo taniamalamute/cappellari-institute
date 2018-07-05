@@ -2,11 +2,6 @@
     <PropertyGroup>
         <ProjectGuid>{7F16041A-C8B8-424B-81DA-973DE31201D1}</ProjectGuid>
     </PropertyGroup>
-    <ItemGroup>
-        <Projects Include="FM\WebConfigEditor.dproj">
-            <Dependencies/>
-        </Projects>
-    </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
         <Borland.ProjectType/>
@@ -14,23 +9,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="WebConfigEditor">
-        <MSBuild Projects="FM\WebConfigEditor.dproj"/>
-    </Target>
-    <Target Name="WebConfigEditor:Clean">
-        <MSBuild Projects="FM\WebConfigEditor.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="WebConfigEditor:Make">
-        <MSBuild Projects="FM\WebConfigEditor.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="WebConfigEditor"/>
+        <CallTarget/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="WebConfigEditor:Clean"/>
+        <CallTarget/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="WebConfigEditor:Make"/>
+        <CallTarget/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
