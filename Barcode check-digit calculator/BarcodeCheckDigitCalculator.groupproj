@@ -2,26 +2,6 @@
     <PropertyGroup>
         <ProjectGuid>{B4007FBF-A6D2-4BCD-9E36-46E1F3436032}</ProjectGuid>
     </PropertyGroup>
-    <ItemGroup>
-        <Projects Include="GG\CheckDigitCalculator.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="PE\BarcodesCheck.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="FM\BarcodeCheckDigitCalculator.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="SM\CheckDigitProject.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="SM\CheckDigitbarCode.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="RR\CheckDigit.dproj">
-            <Dependencies/>
-        </Projects>
-    </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
         <Borland.ProjectType/>
@@ -29,68 +9,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="CheckDigitCalculator">
-        <MSBuild Projects="GG\CheckDigitCalculator.dproj"/>
-    </Target>
-    <Target Name="CheckDigitCalculator:Clean">
-        <MSBuild Projects="GG\CheckDigitCalculator.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="CheckDigitCalculator:Make">
-        <MSBuild Projects="GG\CheckDigitCalculator.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="BarcodesCheck">
-        <MSBuild Projects="PE\BarcodesCheck.dproj"/>
-    </Target>
-    <Target Name="BarcodesCheck:Clean">
-        <MSBuild Projects="PE\BarcodesCheck.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="BarcodesCheck:Make">
-        <MSBuild Projects="PE\BarcodesCheck.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="BarcodeCheckDigitCalculator">
-        <MSBuild Projects="FM\BarcodeCheckDigitCalculator.dproj"/>
-    </Target>
-    <Target Name="BarcodeCheckDigitCalculator:Clean">
-        <MSBuild Projects="FM\BarcodeCheckDigitCalculator.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="BarcodeCheckDigitCalculator:Make">
-        <MSBuild Projects="FM\BarcodeCheckDigitCalculator.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="CheckDigitProject">
-        <MSBuild Projects="SM\CheckDigitProject.dproj"/>
-    </Target>
-    <Target Name="CheckDigitProject:Clean">
-        <MSBuild Projects="SM\CheckDigitProject.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="CheckDigitProject:Make">
-        <MSBuild Projects="SM\CheckDigitProject.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="CheckDigitbarCode">
-        <MSBuild Projects="SM\CheckDigitbarCode.dproj"/>
-    </Target>
-    <Target Name="CheckDigitbarCode:Clean">
-        <MSBuild Projects="SM\CheckDigitbarCode.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="CheckDigitbarCode:Make">
-        <MSBuild Projects="SM\CheckDigitbarCode.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="CheckDigit">
-        <MSBuild Projects="RR\CheckDigit.dproj"/>
-    </Target>
-    <Target Name="CheckDigit:Clean">
-        <MSBuild Projects="RR\CheckDigit.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="CheckDigit:Make">
-        <MSBuild Projects="RR\CheckDigit.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="CheckDigitCalculator;BarcodesCheck;BarcodeCheckDigitCalculator;CheckDigitProject;CheckDigitbarCode;CheckDigit"/>
+        <CallTarget/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CheckDigitCalculator:Clean;BarcodesCheck:Clean;BarcodeCheckDigitCalculator:Clean;CheckDigitProject:Clean;CheckDigitbarCode:Clean;CheckDigit:Clean"/>
+        <CallTarget/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CheckDigitCalculator:Make;BarcodesCheck:Make;BarcodeCheckDigitCalculator:Make;CheckDigitProject:Make;CheckDigitbarCode:Make;CheckDigit:Make"/>
+        <CallTarget/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
